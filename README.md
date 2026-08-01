@@ -11,13 +11,6 @@
 **Bridging communication gaps with inclusive AI 🤝**
 Real-time ASL gesture translation — runs entirely in your browser. No servers. No latency. No data leaves your device.
 
----
-
-## 🌐 Live Demo
-
-**[https://voxa-sign.netlify.app/](https://voxa-sign.netlify.app/)**
-
----
 
 ## 📌 Project Overview
 
