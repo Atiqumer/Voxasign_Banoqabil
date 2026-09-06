@@ -53,6 +53,7 @@ from sklearn.preprocessing import StandardScaler
 
 import tensorflow as tf
 
+from metadata_alignment import aligned_split_metadata
 from v2_preprocessing import load_and_scale_v2_features
 
 
@@ -101,6 +102,10 @@ METADATA_PATH = (
 
 CLASS_MAP_PATH = (
     ROOT / "output" / "class_map.json"
+)
+
+FAILED_IMAGES_PATH = (
+    ROOT / "data" / "landmarks" / "failed_images.json"
 )
 
 GEOMETRY_INFO_PATH = (
@@ -908,134 +913,19 @@ def build_test_records(
     if metadata is None:
         return None
 
-    test_metadata = metadata.copy()
-
-    # ---------------------------------------------------------------
-    # Try split-based alignment
-    # ---------------------------------------------------------------
-
-    if "split" in test_metadata.columns:
-
-        split_values = (
-            test_metadata[
-                "split"
-            ]
-            .astype(str)
-            .str.strip()
-            .str.lower()
+    try:
+        records = aligned_split_metadata(
+            metadata=metadata,
+            split="test",
+            expected_rows=len(X_test),
+            failed_images_path=FAILED_IMAGES_PATH,
+            labels=y_test,
         )
-
-        candidates = test_metadata[
-            split_values.isin(
-                [
-                    "test",
-                    "testing",
-                ]
-            )
-        ].copy()
-
-        print()
-        print(
-            f"Test metadata candidates: "
-            f"{len(candidates)}"
-        )
-
-        if len(candidates) == len(
-            X_test
-        ):
-
-            test_metadata = (
-                candidates
-                .reset_index(
-                    drop=True
-                )
-            )
-
-            print(
-                "Test metadata aligned "
-                "using split='test'."
-            )
-
-        elif len(test_metadata) == len(
-            X_test
-        ):
-
-            test_metadata = (
-                test_metadata
-                .reset_index(
-                    drop=True
-                )
-            )
-
-            print(
-                "Metadata aligned "
-                "positionally."
-            )
-
-        else:
-
-            print()
-            print(
-                "WARNING: test metadata "
-                "cannot be safely aligned."
-            )
-
-            print(
-                f"X_test rows: "
-                f"{len(X_test)}"
-            )
-
-            print(
-                f"Metadata rows: "
-                f"{len(test_metadata)}"
-            )
-
-            print(
-                f"Test split rows: "
-                f"{len(candidates)}"
-            )
-
-            print(
-                "Image paths will NOT be attached "
-                "to predictions."
-            )
-
-            return None
-
-    elif len(test_metadata) == len(
-        X_test
-    ):
-
-        test_metadata = (
-            test_metadata
-            .reset_index(
-                drop=True
-            )
-        )
-
-        print(
-            "Test metadata aligned "
-            "positionally."
-        )
-
-    else:
-
-        print()
-        print(
-            "WARNING: metadata/test "
-            "alignment unavailable."
-        )
-
+    except ValueError as exc:
+        print(f"WARNING: test metadata cannot be safely aligned: {exc}")
         return None
 
-    records = test_metadata.copy()
-
-    records["array_index"] = np.arange(
-        len(records)
-    )
-
-    records["true_id"] = y_test
-
+    print(f"Test metadata aligned: {len(records)} successful extraction rows.")
     return records
 
 
@@ -2134,6 +2024,7 @@ def main():
         Y_TEST_PATH,
         METADATA_PATH,
         CLASS_MAP_PATH,
+        FAILED_IMAGES_PATH,
     ]
 
     for path in required_files:

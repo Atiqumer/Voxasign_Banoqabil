@@ -42,7 +42,7 @@ Error categories
 }
 
 Metadata alignment
-False
+True
 
 IMPORTANT
 Metadata/landmark alignment is not guessed.

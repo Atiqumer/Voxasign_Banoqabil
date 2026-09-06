@@ -8,6 +8,7 @@ import tensorflow as tf
 
 from sklearn.metrics import confusion_matrix, classification_report
 
+from metadata_alignment import aligned_split_metadata
 from v2_preprocessing import load_and_scale_v2_features
 
 
@@ -22,6 +23,7 @@ SCALER_PATH = BASE_DIR / "output" / "psl_v2_scaler.npz"
 
 X_TEST_PATH = BASE_DIR / "data" / "landmarks" / "v2" / "X_test_v2.npy"
 Y_TEST_PATH = BASE_DIR / "data" / "landmarks" / "y_test.npy"
+FAILED_IMAGES_PATH = BASE_DIR / "data" / "landmarks" / "failed_images.json"
 
 METADATA_PATH = (
     BASE_DIR
@@ -143,61 +145,12 @@ def find_test_metadata(metadata):
     failed_images.json information if available.
     """
 
-    test_metadata = metadata[
-        metadata["split"].astype(str).str.lower() == "test"
-    ].copy()
-
-    failed_path = BASE_DIR / "data" / "landmarks" / "failed_images.json"
-
-    if failed_path.exists():
-
-        print(f"Found failed-image record: {failed_path}")
-
-        with open(failed_path, "r", encoding="utf-8") as f:
-            failed = json.load(f)
-
-        failed_test = failed.get("test", [])
-
-        failed_paths = set()
-
-        for item in failed_test:
-
-            if isinstance(item, dict):
-                path = item.get("path")
-
-                if path:
-                    failed_paths.add(
-                        str(Path(path)).replace("\\", "/").lower()
-                    )
-
-            elif isinstance(item, str):
-                failed_paths.add(
-                    str(Path(item)).replace("\\", "/").lower()
-                )
-
-        if failed_paths:
-
-            normalized = (
-                test_metadata["path"]
-                .astype(str)
-                .map(lambda x: str(Path(x)).replace("\\", "/").lower())
-            )
-
-            before = len(test_metadata)
-
-            test_metadata = test_metadata[
-                ~normalized.isin(failed_paths)
-            ].copy()
-
-            removed = before - len(test_metadata)
-
-            print(
-                f"Removed {removed} failed test images from metadata."
-            )
-
-    test_metadata = test_metadata.reset_index(drop=True)
-
-    return test_metadata
+    return aligned_split_metadata(
+        metadata=metadata,
+        split="test",
+        expected_rows=len(np.load(X_TEST_PATH, mmap_mode="r")),
+        failed_images_path=FAILED_IMAGES_PATH,
+    )
 
 
 def normalize_path(path):

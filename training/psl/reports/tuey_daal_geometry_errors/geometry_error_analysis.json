@@ -38,13 +38,13 @@
         "both_wrong": 6
     },
     "visualization_counts": {
-        "v2_correct_geometry_correct": 0,
-        "v2_correct_geometry_wrong": 0,
-        "v2_wrong_geometry_correct": 0,
-        "both_wrong": 0,
-        "tuey_as_daal": 0,
-        "daal_as_tuey": 0,
-        "all_target_samples": 0
+        "v2_correct_geometry_correct": 10,
+        "v2_correct_geometry_wrong": 2,
+        "v2_wrong_geometry_correct": 4,
+        "both_wrong": 6,
+        "tuey_as_daal": 8,
+        "daal_as_tuey": 2,
+        "all_target_samples": 22
     },
-    "metadata_alignment": false
+    "metadata_alignment": true
 }
