@@ -1,0 +1,23 @@
+test_index,true_class,v2_prediction,geometry_prediction,v2_correct,geometry_correct,category,v2_confidence,geometry_nearest_distance
+83,Daal,Bay,Tuey,False,False,Both wrong,0.41903114318847656,9.100170135498047
+84,Daal,Bay,Tuey,False,False,Both wrong,0.30369049310684204,2.50393009185791
+85,Daal,Bay,Daal,False,True,V2 wrong / Geometry correct,0.352594792842865,2.89933705329895
+86,Daal,Bay,Daal,False,True,V2 wrong / Geometry correct,0.31984204053878784,5.066666603088379
+87,Daal,Bay,Daal,False,True,V2 wrong / Geometry correct,0.298679918050766,3.338740825653076
+88,Daal,Daal,Daal,True,True,V2 correct / Geometry correct,0.35805758833885193,4.9235053062438965
+89,Daal,Tuey,Daal,False,True,V2 wrong / Geometry correct,0.2872358560562134,5.396656513214111
+90,Daal,Daal,Daal,True,True,V2 correct / Geometry correct,0.2894437611103058,6.482322692871094
+91,Daal,Say,Daal,False,True,V2 wrong / Geometry correct,0.2895312011241913,5.3119659423828125
+92,Daal,Bay,Tuey,False,False,Both wrong,0.2667819857597351,7.974557399749756
+93,Daal,Tuey,Daal,False,True,V2 wrong / Geometry correct,0.2886354625225067,6.102436065673828
+334,Tuey,Bay,Tuey,False,True,V2 wrong / Geometry correct,0.4236469268798828,9.235024452209473
+335,Tuey,Tuey,Tuey,True,True,V2 correct / Geometry correct,0.2793983221054077,2.8043932914733887
+336,Tuey,Bay,Tuey,False,True,V2 wrong / Geometry correct,0.3044222593307495,2.8097665309906006
+337,Tuey,Tuey,Daal,True,False,V2 correct / Geometry wrong,0.2828878164291382,3.308187246322632
+338,Tuey,Bay,Daal,False,False,Both wrong,0.3349454700946808,2.577186107635498
+339,Tuey,Tuey,Daal,True,False,V2 correct / Geometry wrong,0.2718803286552429,4.702062129974365
+340,Tuey,Tuey,Daal,True,False,V2 correct / Geometry wrong,0.33703988790512085,4.908392906188965
+341,Tuey,Tuey,Tuey,True,True,V2 correct / Geometry correct,0.2893570065498352,4.03849458694458
+342,Tuey,Daal,Daal,False,False,Both wrong,0.30389004945755005,11.593056678771973
+343,Tuey,Bay,Tuey,False,True,V2 wrong / Geometry correct,0.3780829906463623,5.777655601501465
+344,Tuey,Tuey,Tuey,True,True,V2 correct / Geometry correct,0.34340158104896545,6.935428619384766

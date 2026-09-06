@@ -1,0 +1,215 @@
+{
+  "class_mapping": {
+    "0": "1-Hay",
+    "1": "Ain",
+    "2": "Alif",
+    "3": "Bay",
+    "4": "Byeh",
+    "5": "Chay",
+    "6": "Cyeh",
+    "7": "Daal",
+    "8": "Dal",
+    "9": "Dochahay",
+    "10": "Fay",
+    "11": "Gaaf",
+    "12": "Ghain",
+    "13": "Hamza",
+    "14": "Kaf",
+    "15": "Khay",
+    "16": "Kiaf",
+    "17": "Lam",
+    "18": "Meem",
+    "19": "Nuun",
+    "20": "Nuungh",
+    "21": "Pay",
+    "22": "Ray",
+    "23": "Say",
+    "24": "Seen",
+    "25": "Sheen",
+    "26": "Suad",
+    "27": "Taay",
+    "28": "Tay",
+    "29": "Tuey",
+    "30": "Wao",
+    "31": "Zaal",
+    "32": "Zaey",
+    "33": "Zay",
+    "34": "Zuad",
+    "35": "Zuey"
+  },
+  "target_classes": {
+    "Daal": 7,
+    "Tuey": 29
+  },
+  "dataset_shapes": {
+    "train": [
+      9244,
+      63
+    ],
+    "validation": [
+      277,
+      63
+    ],
+    "test": [
+      416,
+      63
+    ]
+  },
+  "distance_analysis": {
+    "centroid_distance": 0.2019314169883728,
+    "daal_within_class": 1.2125434875488281,
+    "tuey_within_class": 1.0450078248977661,
+    "between_class": 1.1502000093460083,
+    "separation_ratio": 1.0189801693583591
+  },
+  "classifiers": {
+    "1-NN": {
+      "name": "1-NN",
+      "cv_accuracy": 0.9030368373764601,
+      "cv_std": 0.01526477178067631,
+      "train_accuracy": 1.0,
+      "train_f1": 1.0,
+      "confusion_matrix": [
+        [
+          280,
+          0
+        ],
+        [
+          0,
+          246
+        ]
+      ]
+    },
+    "Logistic Regression": {
+      "name": "Logistic Regression",
+      "cv_accuracy": 0.7681401617250675,
+      "cv_std": 0.046019398025394245,
+      "train_accuracy": 0.8079847908745247,
+      "train_f1": 0.807029970178746,
+      "confusion_matrix": [
+        [
+          231,
+          49
+        ],
+        [
+          52,
+          194
+        ]
+      ]
+    },
+    "Random Forest": {
+      "name": "Random Forest",
+      "cv_accuracy": 0.8953998203054807,
+      "cv_std": 0.03022077188616715,
+      "train_accuracy": 1.0,
+      "train_f1": 1.0,
+      "confusion_matrix": [
+        [
+          280,
+          0
+        ],
+        [
+          0,
+          246
+        ]
+      ]
+    }
+  },
+  "feature_importance": [
+    {
+      "feature": 25,
+      "landmark": 8,
+      "coordinate": "y",
+      "importance": 0.04404512743027409
+    },
+    {
+      "feature": 22,
+      "landmark": 7,
+      "coordinate": "y",
+      "importance": 0.042394184140984136
+    },
+    {
+      "feature": 19,
+      "landmark": 6,
+      "coordinate": "y",
+      "importance": 0.03579674199752994
+    },
+    {
+      "feature": 43,
+      "landmark": 14,
+      "coordinate": "y",
+      "importance": 0.02941820712950012
+    },
+    {
+      "feature": 54,
+      "landmark": 18,
+      "coordinate": "x",
+      "importance": 0.027328225027943635
+    },
+    {
+      "feature": 58,
+      "landmark": 19,
+      "coordinate": "y",
+      "importance": 0.025562205198561807
+    },
+    {
+      "feature": 52,
+      "landmark": 17,
+      "coordinate": "y",
+      "importance": 0.02554489136443217
+    },
+    {
+      "feature": 42,
+      "landmark": 14,
+      "coordinate": "x",
+      "importance": 0.025463591118768877
+    },
+    {
+      "feature": 55,
+      "landmark": 18,
+      "coordinate": "y",
+      "importance": 0.025072169908586895
+    },
+    {
+      "feature": 3,
+      "landmark": 1,
+      "coordinate": "x",
+      "importance": 0.0246814189118593
+    },
+    {
+      "feature": 24,
+      "landmark": 8,
+      "coordinate": "x",
+      "importance": 0.024544102236821658
+    },
+    {
+      "feature": 51,
+      "landmark": 17,
+      "coordinate": "x",
+      "importance": 0.022515199597890216
+    },
+    {
+      "feature": 46,
+      "landmark": 15,
+      "coordinate": "y",
+      "importance": 0.021138622152943994
+    },
+    {
+      "feature": 16,
+      "landmark": 5,
+      "coordinate": "y",
+      "importance": 0.02066392016652081
+    },
+    {
+      "feature": 40,
+      "landmark": 13,
+      "coordinate": "y",
+      "importance": 0.02050314463093874
+    }
+  ],
+  "pca": {
+    "pc1_variance": 0.4171907901763916,
+    "pc2_variance": 0.22550952434539795
+  },
+  "interpretation": "Daal and Tuey are reasonably separable but have meaningful overlap. V2 should investigate both feature representation and classifier improvements."
+}

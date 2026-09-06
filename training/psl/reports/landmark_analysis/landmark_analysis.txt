@@ -1,0 +1,19 @@
+VoxaSign PSL Landmark Analysis
+======================================================================
+
+Daal class ID: 7
+Tuey class ID: 29
+
+Daal centroid distance: 0.201931
+Daal within-class: 1.212543
+Tuey within-class: 1.045008
+Between-class: 1.150200
+Separation ratio: 1.018980
+
+Classifier results:
+1-NN: 90.30% +/- 1.53%
+Logistic Regression: 76.81% +/- 4.60%
+Random Forest: 89.54% +/- 3.02%
+
+Interpretation:
+Daal and Tuey are reasonably separable but have meaningful overlap. V2 should investigate both feature representation and classifier improvements.

@@ -1,0 +1,21 @@
+{
+    "version": "V2",
+    "input_features": 115,
+    "num_classes": 36,
+    "architecture": [
+        256,
+        128,
+        64,
+        36
+    ],
+    "dropout": [
+        0.3,
+        0.25,
+        0.2
+    ],
+    "batch_size": 64,
+    "max_epochs": 100,
+    "seed": 42,
+    "test_loss": 0.18297764658927917,
+    "test_accuracy": 0.932692289352417
+}

@@ -1,0 +1,115 @@
+{
+    "overall_accuracy": 0.9423076923076923,
+    "expected_v2_accuracy": 0.9423076923076923,
+    "accuracy_difference": 0.0,
+    "preprocessing_verified": true,
+    "test_samples": 416,
+    "tuey_id": 29,
+    "tuey_total": 11,
+    "tuey_correct": 3,
+    "tuey_accuracy": 0.2727272727272727,
+    "tuey_precision": 0.6,
+    "tuey_recall": 0.2727272727272727,
+    "tuey_f1": 0.375,
+    "tuey_confusion": {
+        "Tuey": 3,
+        "Daal": 8
+    },
+    "other_to_tuey": {
+        "Daal": 2
+    },
+    "tuey_mean_confidence": 0.7679028294303201,
+    "tuey_median_confidence": 0.8398783802986145,
+    "tuey_min_confidence": 0.5094788074493408,
+    "tuey_max_confidence": 0.9098920822143555,
+    "individual_predictions": [
+        {
+            "test_index": 334,
+            "true_class": "Tuey",
+            "predicted_class": "Tuey",
+            "predicted_id": 29,
+            "confidence": 0.8398783802986145,
+            "correct": true
+        },
+        {
+            "test_index": 335,
+            "true_class": "Tuey",
+            "predicted_class": "Daal",
+            "predicted_id": 7,
+            "confidence": 0.6478573679924011,
+            "correct": false
+        },
+        {
+            "test_index": 336,
+            "true_class": "Tuey",
+            "predicted_class": "Daal",
+            "predicted_id": 7,
+            "confidence": 0.6199849843978882,
+            "correct": false
+        },
+        {
+            "test_index": 337,
+            "true_class": "Tuey",
+            "predicted_class": "Daal",
+            "predicted_id": 7,
+            "confidence": 0.8806658387184143,
+            "correct": false
+        },
+        {
+            "test_index": 338,
+            "true_class": "Tuey",
+            "predicted_class": "Daal",
+            "predicted_id": 7,
+            "confidence": 0.5094788074493408,
+            "correct": false
+        },
+        {
+            "test_index": 339,
+            "true_class": "Tuey",
+            "predicted_class": "Daal",
+            "predicted_id": 7,
+            "confidence": 0.6936085820198059,
+            "correct": false
+        },
+        {
+            "test_index": 340,
+            "true_class": "Tuey",
+            "predicted_class": "Daal",
+            "predicted_id": 7,
+            "confidence": 0.9098920822143555,
+            "correct": false
+        },
+        {
+            "test_index": 341,
+            "true_class": "Tuey",
+            "predicted_class": "Daal",
+            "predicted_id": 7,
+            "confidence": 0.8926973342895508,
+            "correct": false
+        },
+        {
+            "test_index": 342,
+            "true_class": "Tuey",
+            "predicted_class": "Daal",
+            "predicted_id": 7,
+            "confidence": 0.9068411588668823,
+            "correct": false
+        },
+        {
+            "test_index": 343,
+            "true_class": "Tuey",
+            "predicted_class": "Tuey",
+            "predicted_id": 29,
+            "confidence": 0.6391031742095947,
+            "correct": true
+        },
+        {
+            "test_index": 344,
+            "true_class": "Tuey",
+            "predicted_class": "Tuey",
+            "predicted_id": 29,
+            "confidence": 0.9069234132766724,
+            "correct": true
+        }
+    ]
+}

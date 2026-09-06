@@ -1,0 +1,514 @@
+{
+    "version": "Tuey-Bay Analysis V1",
+    "classes": {
+        "Tuey": 29,
+        "Bay": 3
+    },
+    "dataset_shapes": {
+        "train": [
+            9244,
+            115
+        ],
+        "validation": [
+            277,
+            115
+        ],
+        "test": [
+            416,
+            115
+        ]
+    },
+    "sample_counts": {
+        "train": {
+            "Tuey": 246,
+            "Bay": 327
+        },
+        "validation": {
+            "Tuey": 8,
+            "Bay": 8
+        },
+        "test": {
+            "Tuey": 11,
+            "Bay": 12
+        }
+    },
+    "distance_analysis": {
+        "centroid_distance": 2.5257365703582764,
+        "tuey_within_class": 1.1926045019953135,
+        "bay_within_class": 1.2525512264953302,
+        "tuey_bay_mean_distance": 2.836015224456787,
+        "separation_ratio": 2.3197010875134767
+    },
+    "binary_test_metrics": {
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "confusion_matrix": [
+            [
+                12,
+                0
+            ],
+            [
+                0,
+                11
+            ]
+        ]
+    },
+    "classifier_separability": {
+        "1-NN": {
+            "mean": 1.0,
+            "std": 0.0,
+            "scores": [
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        "Logistic Regression": {
+            "mean": 1.0,
+            "std": 0.0,
+            "scores": [
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        "Random Forest": {
+            "mean": 1.0,
+            "std": 0.0,
+            "scores": [
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ]
+        }
+    },
+    "pca": {
+        "pc1_variance": 0.4139965772628784,
+        "pc2_variance": 0.1689302921295166
+    },
+    "top_effect_features": [
+        {
+            "rank": 1,
+            "feature_index": 49,
+            "feature_name": "Landmark 16 y",
+            "tuey_mean": -0.3623197078704834,
+            "bay_mean": -0.942967414855957,
+            "absolute_difference": 0.5806477069854736,
+            "pooled_std": 0.07655125111341476,
+            "effect_size": 7.585083961486816
+        },
+        {
+            "rank": 2,
+            "feature_index": 61,
+            "feature_name": "Landmark 20 y",
+            "tuey_mean": -0.34023788571357727,
+            "bay_mean": -0.8116783499717712,
+            "absolute_difference": 0.47144046425819397,
+            "pooled_std": 0.07709375768899918,
+            "effect_size": 6.115156650543213
+        },
+        {
+            "rank": 3,
+            "feature_index": 37,
+            "feature_name": "Landmark 12 y",
+            "tuey_mean": -0.4188142418861389,
+            "bay_mean": -0.9996616840362549,
+            "absolute_difference": 0.580847442150116,
+            "pooled_std": 0.09796470403671265,
+            "effect_size": 5.929149627685547
+        },
+        {
+            "rank": 4,
+            "feature_index": 46,
+            "feature_name": "Landmark 15 y",
+            "tuey_mean": -0.41721752285957336,
+            "bay_mean": -0.8382254838943481,
+            "absolute_difference": 0.4210079610347748,
+            "pooled_std": 0.07720339298248291,
+            "effect_size": 5.453230857849121
+        },
+        {
+            "rank": 5,
+            "feature_index": 83,
+            "feature_name": "V2 Feature 83",
+            "tuey_mean": 0.9291521906852722,
+            "bay_mean": 0.5437049865722656,
+            "absolute_difference": 0.3854472041130066,
+            "pooled_std": 0.07599389553070068,
+            "effect_size": 5.072080612182617
+        },
+        {
+            "rank": 6,
+            "feature_index": 34,
+            "feature_name": "Landmark 11 y",
+            "tuey_mean": -0.4846450388431549,
+            "bay_mean": -0.8823630213737488,
+            "absolute_difference": 0.39771798253059387,
+            "pooled_std": 0.08686637878417969,
+            "effect_size": 4.578502655029297
+        },
+        {
+            "rank": 7,
+            "feature_index": 58,
+            "feature_name": "Landmark 19 y",
+            "tuey_mean": -0.3632511794567108,
+            "bay_mean": -0.7246145009994507,
+            "absolute_difference": 0.36136332154273987,
+            "pooled_std": 0.07906408607959747,
+            "effect_size": 4.570511341094971
+        },
+        {
+            "rank": 8,
+            "feature_index": 60,
+            "feature_name": "Landmark 20 x",
+            "tuey_mean": 0.7493585348129272,
+            "bay_mean": 0.0025296881794929504,
+            "absolute_difference": 0.7468288540840149,
+            "pooled_std": 0.16686296463012695,
+            "effect_size": 4.475701332092285
+        },
+        {
+            "rank": 9,
+            "feature_index": 102,
+            "feature_name": "V2 Feature 102",
+            "tuey_mean": 0.5927309393882751,
+            "bay_mean": 0.18697009980678558,
+            "absolute_difference": 0.40576082468032837,
+            "pooled_std": 0.09089143574237823,
+            "effect_size": 4.464235782623291
+        },
+        {
+            "rank": 10,
+            "feature_index": 57,
+            "feature_name": "Landmark 19 x",
+            "tuey_mean": 0.6033968329429626,
+            "bay_mean": -0.04832243174314499,
+            "absolute_difference": 0.6517192721366882,
+            "pooled_std": 0.14864854514598846,
+            "effect_size": 4.38429594039917
+        },
+        {
+            "rank": 11,
+            "feature_index": 54,
+            "feature_name": "Landmark 18 x",
+            "tuey_mean": 0.4143363833427429,
+            "bay_mean": -0.09723329544067383,
+            "absolute_difference": 0.5115696787834167,
+            "pooled_std": 0.12753427028656006,
+            "effect_size": 4.011232376098633
+        },
+        {
+            "rank": 12,
+            "feature_index": 76,
+            "feature_name": "V2 Feature 76",
+            "tuey_mean": 0.4107300043106079,
+            "bay_mean": 0.22067005932331085,
+            "absolute_difference": 0.19005994498729706,
+            "pooled_std": 0.047866784036159515,
+            "effect_size": 3.9706010818481445
+        },
+        {
+            "rank": 13,
+            "feature_index": 80,
+            "feature_name": "V2 Feature 80",
+            "tuey_mean": 0.3220171630382538,
+            "bay_mean": 0.17398804426193237,
+            "absolute_difference": 0.1480291187763214,
+            "pooled_std": 0.039002809673547745,
+            "effect_size": 3.7953438758850098
+        },
+        {
+            "rank": 14,
+            "feature_index": 93,
+            "feature_name": "V2 Feature 93",
+            "tuey_mean": 0.9364373087882996,
+            "bay_mean": 0.6138220429420471,
+            "absolute_difference": 0.32261526584625244,
+            "pooled_std": 0.0859844833612442,
+            "effect_size": 3.752017021179199
+        },
+        {
+            "rank": 15,
+            "feature_index": 99,
+            "feature_name": "V2 Feature 99",
+            "tuey_mean": 0.27900147438049316,
+            "bay_mean": 0.6758010387420654,
+            "absolute_difference": 0.39679956436157227,
+            "pooled_std": 0.10633095353841782,
+            "effect_size": 3.731740713119507
+        },
+        {
+            "rank": 16,
+            "feature_index": 12,
+            "feature_name": "Landmark  4 x",
+            "tuey_mean": 0.8067255020141602,
+            "bay_mean": 0.08333610743284225,
+            "absolute_difference": 0.7233893871307373,
+            "pooled_std": 0.19856733083724976,
+            "effect_size": 3.643043041229248
+        },
+        {
+            "rank": 17,
+            "feature_index": 5,
+            "feature_name": "Landmark  1 z",
+            "tuey_mean": 0.008938525803387165,
+            "bay_mean": -0.18478749692440033,
+            "absolute_difference": 0.19372601807117462,
+            "pooled_std": 0.054427843540906906,
+            "effect_size": 3.5593175888061523
+        },
+        {
+            "rank": 18,
+            "feature_index": 100,
+            "feature_name": "V2 Feature 100",
+            "tuey_mean": 0.2665083110332489,
+            "bay_mean": 0.5472403168678284,
+            "absolute_difference": 0.28073200583457947,
+            "pooled_std": 0.08226677030324936,
+            "effect_size": 3.412458896636963
+        },
+        {
+            "rank": 19,
+            "feature_index": 48,
+            "feature_name": "Landmark 16 x",
+            "tuey_mean": 0.8823923468589783,
+            "bay_mean": 0.22493652999401093,
+            "absolute_difference": 0.6574558019638062,
+            "pooled_std": 0.19350658357143402,
+            "effect_size": 3.3975884914398193
+        },
+        {
+            "rank": 20,
+            "feature_index": 72,
+            "feature_name": "V2 Feature 72",
+            "tuey_mean": 0.4118703007698059,
+            "bay_mean": 0.2410937249660492,
+            "absolute_difference": 0.1707765758037567,
+            "pooled_std": 0.05080394074320793,
+            "effect_size": 3.3614821434020996
+        }
+    ],
+    "top_random_forest_features": [
+        {
+            "rank": 1,
+            "feature_index": 83,
+            "feature_name": "V2 Feature 83",
+            "importance": 0.10528773610140299
+        },
+        {
+            "rank": 2,
+            "feature_index": 49,
+            "feature_name": "Landmark 16 y",
+            "importance": 0.07155631397014235
+        },
+        {
+            "rank": 3,
+            "feature_index": 99,
+            "feature_name": "V2 Feature 99",
+            "importance": 0.06045128075925357
+        },
+        {
+            "rank": 4,
+            "feature_index": 58,
+            "feature_name": "Landmark 19 y",
+            "importance": 0.05730578103168424
+        },
+        {
+            "rank": 5,
+            "feature_index": 46,
+            "feature_name": "Landmark 15 y",
+            "importance": 0.05703075209586939
+        },
+        {
+            "rank": 6,
+            "feature_index": 60,
+            "feature_name": "Landmark 20 x",
+            "importance": 0.05599107553176876
+        },
+        {
+            "rank": 7,
+            "feature_index": 55,
+            "feature_name": "Landmark 18 y",
+            "importance": 0.050200919875585864
+        },
+        {
+            "rank": 8,
+            "feature_index": 37,
+            "feature_name": "Landmark 12 y",
+            "importance": 0.04941887727055533
+        },
+        {
+            "rank": 9,
+            "feature_index": 61,
+            "feature_name": "Landmark 20 y",
+            "importance": 0.048553108033734166
+        },
+        {
+            "rank": 10,
+            "feature_index": 43,
+            "feature_name": "Landmark 14 y",
+            "importance": 0.043644163026959844
+        },
+        {
+            "rank": 11,
+            "feature_index": 54,
+            "feature_name": "Landmark 18 x",
+            "importance": 0.04274351559081879
+        },
+        {
+            "rank": 12,
+            "feature_index": 57,
+            "feature_name": "Landmark 19 x",
+            "importance": 0.03835621523847735
+        },
+        {
+            "rank": 13,
+            "feature_index": 12,
+            "feature_name": "Landmark  4 x",
+            "importance": 0.032889042058053236
+        },
+        {
+            "rank": 14,
+            "feature_index": 76,
+            "feature_name": "V2 Feature 76",
+            "importance": 0.03228013184207697
+        },
+        {
+            "rank": 15,
+            "feature_index": 5,
+            "feature_name": "Landmark  1 z",
+            "importance": 0.02615747012030872
+        },
+        {
+            "rank": 16,
+            "feature_index": 80,
+            "feature_name": "V2 Feature 80",
+            "importance": 0.025041475132355117
+        },
+        {
+            "rank": 17,
+            "feature_index": 100,
+            "feature_name": "V2 Feature 100",
+            "importance": 0.023811210306746336
+        },
+        {
+            "rank": 18,
+            "feature_index": 48,
+            "feature_name": "Landmark 16 x",
+            "importance": 0.022134757625455723
+        },
+        {
+            "rank": 19,
+            "feature_index": 34,
+            "feature_name": "Landmark 11 y",
+            "importance": 0.019912736178863362
+        },
+        {
+            "rank": 20,
+            "feature_index": 102,
+            "feature_name": "V2 Feature 102",
+            "importance": 0.019715804615608713
+        }
+    ],
+    "subject_analysis": {
+        "split_subject_counts": {
+            "train": 56,
+            "validation": 8,
+            "test": 12
+        },
+        "class_counts": {
+            "train": {
+                "254": 2,
+                "257": 2,
+                "263": 2,
+                "264": 2,
+                "265": 2,
+                "266": 2,
+                "267": 2,
+                "268": 2,
+                "273": 2,
+                "274": 2,
+                "276": 2,
+                "277": 2,
+                "278": 2,
+                "279": 2,
+                "280": 2,
+                "281": 2,
+                "282": 2,
+                "283": 2,
+                "284": 2,
+                "287": 2,
+                "288": 2,
+                "292": 2,
+                "293": 2,
+                "295": 2,
+                "296": 2,
+                "298": 2,
+                "299": 2,
+                "300": 2,
+                "301": 2,
+                "302": 2,
+                "303": 2,
+                "305": 2,
+                "306": 2,
+                "307": 2,
+                "308": 2,
+                "309": 2,
+                "310": 2,
+                "311": 2,
+                "312": 2,
+                "314": 2,
+                "315": 2,
+                "316": 2,
+                "317": 2,
+                "318": 2,
+                "319": 2,
+                "320": 2,
+                "321": 2,
+                "322": 2,
+                "323": 2,
+                "324": 2,
+                "325": 2,
+                "326": 2,
+                "328": 2,
+                "329": 2,
+                "330": 2,
+                "331": 2
+            },
+            "validation": {
+                "255": 2,
+                "270": 2,
+                "285": 2,
+                "290": 2,
+                "297": 2,
+                "304": 2,
+                "333": 2,
+                "335": 2
+            },
+            "test": {
+                "258": 2,
+                "261": 2,
+                "269": 2,
+                "271": 2,
+                "272": 2,
+                "275": 2,
+                "286": 2,
+                "289": 2,
+                "294": 2,
+                "313": 2,
+                "327": 2,
+                "334": 2
+            }
+        }
+    },
+    "interpretation": "Tuey and Bay appear reasonably separable in the current V2 feature representation.",
+    "recommendation": "Tuey/Bay are separable using the current features. A targeted V3 classifier or loss strategy may be useful."
+}

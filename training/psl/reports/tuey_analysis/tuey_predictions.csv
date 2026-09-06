@@ -1,0 +1,12 @@
+test_index,true_class,predicted_class,predicted_id,confidence,correct
+334,Tuey,Tuey,29,0.8398783802986145,True
+335,Tuey,Daal,7,0.6478573679924011,False
+336,Tuey,Daal,7,0.6199849843978882,False
+337,Tuey,Daal,7,0.8806658387184143,False
+338,Tuey,Daal,7,0.5094788074493408,False
+339,Tuey,Daal,7,0.6936085820198059,False
+340,Tuey,Daal,7,0.9098920822143555,False
+341,Tuey,Daal,7,0.8926973342895508,False
+342,Tuey,Daal,7,0.9068411588668823,False
+343,Tuey,Tuey,29,0.6391031742095947,True
+344,Tuey,Tuey,29,0.9069234132766724,True

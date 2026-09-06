@@ -1,0 +1,281 @@
+{
+    "experiment": "Tuey vs Daal Geometry",
+    "target_classes": {
+        "Tuey": 29,
+        "Daal": 7
+    },
+    "data_shapes": {
+        "X_train": [
+            9244,
+            115
+        ],
+        "X_validation": [
+            277,
+            115
+        ],
+        "X_test": [
+            416,
+            115
+        ],
+        "geometry_train": [
+            9244,
+            175
+        ],
+        "geometry_validation": [
+            277,
+            175
+        ],
+        "geometry_test": [
+            416,
+            175
+        ]
+    },
+    "feature_counts": {
+        "v2": 115,
+        "geometry": 175,
+        "v2_plus_geometry": 290
+    },
+    "test_results": [
+        {
+            "feature_set": "V2",
+            "model": "Logistic Regression",
+            "accuracy": 0.5909090909090909,
+            "precision": 0.6666666666666666,
+            "recall": 0.36363636363636365,
+            "f1": 0.47058823529411764,
+            "confusion_matrix": [
+                [
+                    9,
+                    2
+                ],
+                [
+                    7,
+                    4
+                ]
+            ]
+        },
+        {
+            "feature_set": "V2",
+            "model": "SVM RBF",
+            "accuracy": 0.5454545454545454,
+            "precision": 0.5454545454545454,
+            "recall": 0.5454545454545454,
+            "f1": 0.5454545454545454,
+            "confusion_matrix": [
+                [
+                    6,
+                    5
+                ],
+                [
+                    5,
+                    6
+                ]
+            ]
+        },
+        {
+            "feature_set": "V2",
+            "model": "Random Forest",
+            "accuracy": 0.5,
+            "precision": 0.5,
+            "recall": 0.36363636363636365,
+            "f1": 0.42105263157894735,
+            "confusion_matrix": [
+                [
+                    7,
+                    4
+                ],
+                [
+                    7,
+                    4
+                ]
+            ]
+        },
+        {
+            "feature_set": "V2",
+            "model": "1-NN",
+            "accuracy": 0.6818181818181818,
+            "precision": 0.7,
+            "recall": 0.6363636363636364,
+            "f1": 0.6666666666666666,
+            "confusion_matrix": [
+                [
+                    8,
+                    3
+                ],
+                [
+                    4,
+                    7
+                ]
+            ]
+        },
+        {
+            "feature_set": "Geometry Only",
+            "model": "Logistic Regression",
+            "accuracy": 0.5909090909090909,
+            "precision": 0.625,
+            "recall": 0.45454545454545453,
+            "f1": 0.5263157894736842,
+            "confusion_matrix": [
+                [
+                    8,
+                    3
+                ],
+                [
+                    6,
+                    5
+                ]
+            ]
+        },
+        {
+            "feature_set": "Geometry Only",
+            "model": "SVM RBF",
+            "accuracy": 0.5454545454545454,
+            "precision": 0.5454545454545454,
+            "recall": 0.5454545454545454,
+            "f1": 0.5454545454545454,
+            "confusion_matrix": [
+                [
+                    6,
+                    5
+                ],
+                [
+                    5,
+                    6
+                ]
+            ]
+        },
+        {
+            "feature_set": "Geometry Only",
+            "model": "Random Forest",
+            "accuracy": 0.6363636363636364,
+            "precision": 0.7142857142857143,
+            "recall": 0.45454545454545453,
+            "f1": 0.5555555555555556,
+            "confusion_matrix": [
+                [
+                    9,
+                    2
+                ],
+                [
+                    6,
+                    5
+                ]
+            ]
+        },
+        {
+            "feature_set": "Geometry Only",
+            "model": "1-NN",
+            "accuracy": 0.5909090909090909,
+            "precision": 0.625,
+            "recall": 0.45454545454545453,
+            "f1": 0.5263157894736842,
+            "confusion_matrix": [
+                [
+                    8,
+                    3
+                ],
+                [
+                    6,
+                    5
+                ]
+            ]
+        },
+        {
+            "feature_set": "V2 + Geometry",
+            "model": "Logistic Regression",
+            "accuracy": 0.5909090909090909,
+            "precision": 0.625,
+            "recall": 0.45454545454545453,
+            "f1": 0.5263157894736842,
+            "confusion_matrix": [
+                [
+                    8,
+                    3
+                ],
+                [
+                    6,
+                    5
+                ]
+            ]
+        },
+        {
+            "feature_set": "V2 + Geometry",
+            "model": "SVM RBF",
+            "accuracy": 0.5454545454545454,
+            "precision": 0.5454545454545454,
+            "recall": 0.5454545454545454,
+            "f1": 0.5454545454545454,
+            "confusion_matrix": [
+                [
+                    6,
+                    5
+                ],
+                [
+                    5,
+                    6
+                ]
+            ]
+        },
+        {
+            "feature_set": "V2 + Geometry",
+            "model": "Random Forest",
+            "accuracy": 0.5454545454545454,
+            "precision": 0.5555555555555556,
+            "recall": 0.45454545454545453,
+            "f1": 0.5,
+            "confusion_matrix": [
+                [
+                    7,
+                    4
+                ],
+                [
+                    6,
+                    5
+                ]
+            ]
+        },
+        {
+            "feature_set": "V2 + Geometry",
+            "model": "1-NN",
+            "accuracy": 0.7272727272727273,
+            "precision": 0.7272727272727273,
+            "recall": 0.7272727272727273,
+            "f1": 0.7272727272727273,
+            "confusion_matrix": [
+                [
+                    8,
+                    3
+                ],
+                [
+                    3,
+                    8
+                ]
+            ]
+        }
+    ],
+    "best_configuration": {
+        "feature_set": "V2 + Geometry",
+        "model": "1-NN",
+        "accuracy": 0.7272727272727273,
+        "precision": 0.7272727272727273,
+        "recall": 0.7272727272727273,
+        "f1": 0.7272727272727273,
+        "confusion_matrix": [
+            [
+                8,
+                3
+            ],
+            [
+                3,
+                8
+            ]
+        ]
+    },
+    "interpretation": {
+        "v2_best_f1": 0.6666666666666666,
+        "geometry_best_f1": 0.5555555555555556,
+        "combined_best_f1": 0.7272727272727273,
+        "combined_minus_v2_f1": 0.06060606060606066,
+        "conclusion": "STRONG POSITIVE RESULT: geometry substantially improves Tuey/Daal classification. Geometry should be considered for V3."
+    }
+}

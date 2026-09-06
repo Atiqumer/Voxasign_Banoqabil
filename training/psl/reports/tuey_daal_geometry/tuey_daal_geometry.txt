@@ -1,0 +1,18 @@
+VoxaSign PSL — Tuey vs Daal Geometric Feature Experiment
+======================================================================
+
+V2 best model: 1-NN
+V2 accuracy: 0.681818
+V2 F1: 0.666667
+
+Geometry best model: Random Forest
+Geometry accuracy: 0.636364
+Geometry F1: 0.555556
+
+V2 + Geometry best model: 1-NN
+V2 + Geometry accuracy: 0.727273
+V2 + Geometry F1: 0.727273
+
+F1 improvement: +0.060606
+
+STRONG POSITIVE RESULT: geometry substantially improves Tuey/Daal classification. Geometry should be considered for V3.

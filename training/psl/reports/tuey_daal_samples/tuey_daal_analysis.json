@@ -1,0 +1,39 @@
+{
+    "version": "Tuey-Daal Analysis V1",
+    "model": "D:\\voxasign\\training\\psl\\output\\psl_static_model_v2.keras",
+    "test_samples": 416,
+    "overall_accuracy": 0.1971153846153846,
+    "classes": {
+        "Tuey": 29,
+        "Daal": 7
+    },
+    "test_counts": {
+        "Tuey": 11,
+        "Daal": 11
+    },
+    "recall": {
+        "Tuey": 0.5454545454545454,
+        "Daal": 0.18181818181818182
+    },
+    "confusion": {
+        "Tuey_to_Tuey": 6,
+        "Tuey_to_Daal": 1,
+        "Daal_to_Daal": 2,
+        "Daal_to_Tuey": 2
+    },
+    "error_count": 3,
+    "error_subject_counts": {
+        "289": 1,
+        "294": 1,
+        "334": 1
+    },
+    "top_error_subject": "289",
+    "top_error_subject_count": 1,
+    "copied_images": {
+        "tuey_correct": 6,
+        "tuey_as_daal": 1,
+        "daal_correct": 2,
+        "daal_as_tuey": 2
+    },
+    "interpretation": "Tuey/Daal confusion exists but is limited. Inspect the individual samples before changing the model."
+}

@@ -1,0 +1,421 @@
+{
+    "target_classes": [
+        "Tuey",
+        "Bay",
+        "Daal",
+        "Tay",
+        "Chay",
+        "Say"
+    ],
+    "target_ids": {
+        "Tuey": 29,
+        "Bay": 3,
+        "Daal": 7,
+        "Tay": 28,
+        "Chay": 5,
+        "Say": 23
+    },
+    "dataset": {
+        "train_cluster_samples": 1517,
+        "validation_cluster_samples": 45,
+        "test_cluster_samples": 64,
+        "feature_count": 115
+    },
+    "distribution": {
+        "Tuey": {
+            "train": 246,
+            "validation": 8,
+            "test": 11
+        },
+        "Bay": {
+            "train": 327,
+            "validation": 8,
+            "test": 12
+        },
+        "Daal": {
+            "train": 280,
+            "validation": 8,
+            "test": 11
+        },
+        "Tay": {
+            "train": 163,
+            "validation": 5,
+            "test": 6
+        },
+        "Chay": {
+            "train": 248,
+            "validation": 8,
+            "test": 12
+        },
+        "Say": {
+            "train": 253,
+            "validation": 8,
+            "test": 12
+        }
+    },
+    "feature_effects": [
+        {
+            "feature_index": 60,
+            "feature_name": "Landmark 20 x",
+            "effect": 3.200151340317725
+        },
+        {
+            "feature_index": 54,
+            "feature_name": "Landmark 18 x",
+            "effect": 3.1579764278584412
+        },
+        {
+            "feature_index": 57,
+            "feature_name": "Landmark 19 x",
+            "effect": 3.127797292914434
+        },
+        {
+            "feature_index": 49,
+            "feature_name": "Landmark 16 y",
+            "effect": 2.966065747311615
+        },
+        {
+            "feature_index": 83,
+            "feature_name": "V2 Feature 83",
+            "effect": 2.7914285842834574
+        },
+        {
+            "feature_index": 48,
+            "feature_name": "Landmark 16 x",
+            "effect": 2.777366566984821
+        },
+        {
+            "feature_index": 61,
+            "feature_name": "Landmark 20 y",
+            "effect": 2.7756922938861175
+        },
+        {
+            "feature_index": 45,
+            "feature_name": "Landmark 15 x",
+            "effect": 2.7741136770466874
+        },
+        {
+            "feature_index": 51,
+            "feature_name": "Landmark 17 x",
+            "effect": 2.761529154422848
+        },
+        {
+            "feature_index": 12,
+            "feature_name": "Landmark  4 x",
+            "effect": 2.577010469040215
+        },
+        {
+            "feature_index": 4,
+            "feature_name": "Landmark  1 y",
+            "effect": 2.554164421238741
+        },
+        {
+            "feature_index": 107,
+            "feature_name": "V2 Feature 107",
+            "effect": 2.54810218025933
+        },
+        {
+            "feature_index": 42,
+            "feature_name": "Landmark 14 x",
+            "effect": 2.5300978155309988
+        },
+        {
+            "feature_index": 85,
+            "feature_name": "V2 Feature 85",
+            "effect": 2.4379150961536467
+        },
+        {
+            "feature_index": 102,
+            "feature_name": "V2 Feature 102",
+            "effect": 2.426237595204969
+        },
+        {
+            "feature_index": 46,
+            "feature_name": "Landmark 15 y",
+            "effect": 2.424132994170405
+        },
+        {
+            "feature_index": 96,
+            "feature_name": "V2 Feature 96",
+            "effect": 2.416010851793097
+        },
+        {
+            "feature_index": 58,
+            "feature_name": "Landmark 19 y",
+            "effect": 2.4124810399796504
+        },
+        {
+            "feature_index": 106,
+            "feature_name": "V2 Feature 106",
+            "effect": 2.405667127313886
+        },
+        {
+            "feature_index": 87,
+            "feature_name": "V2 Feature 87",
+            "effect": 2.3131321626393384
+        },
+        {
+            "feature_index": 97,
+            "feature_name": "V2 Feature 97",
+            "effect": 2.18029739688909
+        },
+        {
+            "feature_index": 89,
+            "feature_name": "V2 Feature 89",
+            "effect": 2.1710758677161968
+        },
+        {
+            "feature_index": 37,
+            "feature_name": "Landmark 12 y",
+            "effect": 2.163632611256223
+        },
+        {
+            "feature_index": 5,
+            "feature_name": "Landmark  1 z",
+            "effect": 2.10753687010632
+        },
+        {
+            "feature_index": 7,
+            "feature_name": "Landmark  2 y",
+            "effect": 2.0300482338426744
+        }
+    ],
+    "test_results": {
+        "1-NN": {
+            "accuracy": 0.84375,
+            "precision": 0.8532509157509157,
+            "recall": 0.8497474747474748,
+            "f1": 0.8471395881006866
+        },
+        "Logistic Regression": {
+            "accuracy": 0.8125,
+            "precision": 0.8095238095238094,
+            "recall": 0.8194444444444443,
+            "f1": 0.8041887385450898
+        },
+        "SVM RBF": {
+            "accuracy": 0.84375,
+            "precision": 0.8437118437118437,
+            "recall": 0.8510101010101009,
+            "f1": 0.8437978446674098
+        },
+        "Random Forest": {
+            "accuracy": 0.828125,
+            "precision": 0.8333333333333334,
+            "recall": 0.8333333333333331,
+            "f1": 0.8329882677708765
+        }
+    },
+    "cross_validation": {
+        "1-NN": {
+            "mean": 0.9584744658676394,
+            "std": 0.011903098058896696
+        },
+        "Logistic Regression": {
+            "mean": 0.9465954490185862,
+            "std": 0.008996685524045788
+        },
+        "SVM RBF": {
+            "mean": 0.9386985409067222,
+            "std": 0.010734134042965613
+        },
+        "Random Forest": {
+            "mean": 0.9597837415320478,
+            "std": 0.008473833600117534
+        }
+    },
+    "best_cv_model": "Random Forest",
+    "confusion_matrix": [
+        [
+            5,
+            0,
+            6,
+            0,
+            0,
+            0
+        ],
+        [
+            0,
+            12,
+            0,
+            0,
+            0,
+            0
+        ],
+        [
+            5,
+            0,
+            6,
+            0,
+            0,
+            0
+        ],
+        [
+            0,
+            0,
+            0,
+            6,
+            0,
+            0
+        ],
+        [
+            0,
+            0,
+            0,
+            0,
+            12,
+            0
+        ],
+        [
+            0,
+            0,
+            0,
+            0,
+            0,
+            12
+        ]
+    ],
+    "pairwise_confusions": [
+        {
+            "true": "Tuey",
+            "predicted": "Daal",
+            "count": 6
+        },
+        {
+            "true": "Daal",
+            "predicted": "Tuey",
+            "count": 5
+        }
+    ],
+    "random_forest_features": [
+        {
+            "feature_index": 61,
+            "feature_name": "Landmark 20 y",
+            "importance": 0.042521051350686484
+        },
+        {
+            "feature_index": 58,
+            "feature_name": "Landmark 19 y",
+            "importance": 0.04129170509040497
+        },
+        {
+            "feature_index": 107,
+            "feature_name": "V2 Feature 107",
+            "importance": 0.03782441147072773
+        },
+        {
+            "feature_index": 49,
+            "feature_name": "Landmark 16 y",
+            "importance": 0.0345913522210254
+        },
+        {
+            "feature_index": 4,
+            "feature_name": "Landmark  1 y",
+            "importance": 0.031589525714068575
+        },
+        {
+            "feature_index": 48,
+            "feature_name": "Landmark 16 x",
+            "importance": 0.030709446536960536
+        },
+        {
+            "feature_index": 60,
+            "feature_name": "Landmark 20 x",
+            "importance": 0.0283554263001839
+        },
+        {
+            "feature_index": 46,
+            "feature_name": "Landmark 15 y",
+            "importance": 0.02780433807250458
+        },
+        {
+            "feature_index": 55,
+            "feature_name": "Landmark 18 y",
+            "importance": 0.025486704038577203
+        },
+        {
+            "feature_index": 90,
+            "feature_name": "V2 Feature 90",
+            "importance": 0.024811881425867717
+        },
+        {
+            "feature_index": 45,
+            "feature_name": "Landmark 15 x",
+            "importance": 0.02443072331173371
+        },
+        {
+            "feature_index": 102,
+            "feature_name": "V2 Feature 102",
+            "importance": 0.023763244107645135
+        },
+        {
+            "feature_index": 54,
+            "feature_name": "Landmark 18 x",
+            "importance": 0.023377587339071294
+        },
+        {
+            "feature_index": 37,
+            "feature_name": "Landmark 12 y",
+            "importance": 0.022082274509425563
+        },
+        {
+            "feature_index": 57,
+            "feature_name": "Landmark 19 x",
+            "importance": 0.020508974377377545
+        },
+        {
+            "feature_index": 83,
+            "feature_name": "V2 Feature 83",
+            "importance": 0.02025878467760237
+        },
+        {
+            "feature_index": 106,
+            "feature_name": "V2 Feature 106",
+            "importance": 0.0189350493727144
+        },
+        {
+            "feature_index": 12,
+            "feature_name": "Landmark  4 x",
+            "importance": 0.017949677072031652
+        },
+        {
+            "feature_index": 51,
+            "feature_name": "Landmark 17 x",
+            "importance": 0.017941892883390192
+        },
+        {
+            "feature_index": 5,
+            "feature_name": "Landmark  1 z",
+            "importance": 0.016511829986195728
+        },
+        {
+            "feature_index": 91,
+            "feature_name": "V2 Feature 91",
+            "importance": 0.01604336717178322
+        },
+        {
+            "feature_index": 92,
+            "feature_name": "V2 Feature 92",
+            "importance": 0.015647285135351414
+        },
+        {
+            "feature_index": 103,
+            "feature_name": "V2 Feature 103",
+            "importance": 0.015467536835376978
+        },
+        {
+            "feature_index": 87,
+            "feature_name": "V2 Feature 87",
+            "importance": 0.015395508800700272
+        },
+        {
+            "feature_index": 88,
+            "feature_name": "V2 Feature 88",
+            "importance": 0.015065749646414859
+        }
+    ],
+    "pca": {
+        "pc1_explained_variance": 0.3171740174293518,
+        "pc2_explained_variance": 0.20981156826019287
+    }
+}

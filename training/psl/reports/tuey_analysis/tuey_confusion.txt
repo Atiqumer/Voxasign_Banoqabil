@@ -1,0 +1,18 @@
+VoxaSign PSL — Tuey Confusion Analysis V2 VERIFIED
+============================================================
+Overall accuracy: 94.23%
+Expected V2 accuracy: 94.23%
+Preprocessing verified: True
+
+Tuey samples: 11
+Tuey correct: 3/11
+Tuey recall: 27.27%
+Tuey precision: 60.00%
+Tuey F1: 37.50%
+
+Tuey confusion:
+Tuey -> Daal: 8
+Tuey -> Tuey: 3
+
+Other -> Tuey:
+Daal -> Tuey: 2

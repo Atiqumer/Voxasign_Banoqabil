@@ -1,0 +1,260 @@
+{
+  "model": "psl_static_model_v1",
+  "accuracy": 0.8942307692307693,
+  "macro_f1": 0.8923755831656924,
+  "weighted_f1": 0.8956238534856957,
+  "per_class": [
+    {
+      "class_id": 0,
+      "class": "1-Hay",
+      "correct": 10,
+      "total": 12,
+      "accuracy": 0.8333333333333334
+    },
+    {
+      "class_id": 1,
+      "class": "Ain",
+      "correct": 10,
+      "total": 11,
+      "accuracy": 0.9090909090909091
+    },
+    {
+      "class_id": 2,
+      "class": "Alif",
+      "correct": 12,
+      "total": 12,
+      "accuracy": 1.0
+    },
+    {
+      "class_id": 3,
+      "class": "Bay",
+      "correct": 12,
+      "total": 12,
+      "accuracy": 1.0
+    },
+    {
+      "class_id": 4,
+      "class": "Byeh",
+      "correct": 11,
+      "total": 12,
+      "accuracy": 0.9166666666666666
+    },
+    {
+      "class_id": 5,
+      "class": "Chay",
+      "correct": 12,
+      "total": 12,
+      "accuracy": 1.0
+    },
+    {
+      "class_id": 6,
+      "class": "Cyeh",
+      "correct": 12,
+      "total": 12,
+      "accuracy": 1.0
+    },
+    {
+      "class_id": 7,
+      "class": "Daal",
+      "correct": 5,
+      "total": 11,
+      "accuracy": 0.45454545454545453
+    },
+    {
+      "class_id": 8,
+      "class": "Dal",
+      "correct": 11,
+      "total": 12,
+      "accuracy": 0.9166666666666666
+    },
+    {
+      "class_id": 9,
+      "class": "Dochahay",
+      "correct": 11,
+      "total": 12,
+      "accuracy": 0.9166666666666666
+    },
+    {
+      "class_id": 10,
+      "class": "Fay",
+      "correct": 12,
+      "total": 12,
+      "accuracy": 1.0
+    },
+    {
+      "class_id": 11,
+      "class": "Gaaf",
+      "correct": 12,
+      "total": 12,
+      "accuracy": 1.0
+    },
+    {
+      "class_id": 12,
+      "class": "Ghain",
+      "correct": 9,
+      "total": 11,
+      "accuracy": 0.8181818181818182
+    },
+    {
+      "class_id": 13,
+      "class": "Hamza",
+      "correct": 10,
+      "total": 12,
+      "accuracy": 0.8333333333333334
+    },
+    {
+      "class_id": 14,
+      "class": "Kaf",
+      "correct": 12,
+      "total": 12,
+      "accuracy": 1.0
+    },
+    {
+      "class_id": 15,
+      "class": "Khay",
+      "correct": 10,
+      "total": 12,
+      "accuracy": 0.8333333333333334
+    },
+    {
+      "class_id": 16,
+      "class": "Kiaf",
+      "correct": 10,
+      "total": 12,
+      "accuracy": 0.8333333333333334
+    },
+    {
+      "class_id": 17,
+      "class": "Lam",
+      "correct": 12,
+      "total": 12,
+      "accuracy": 1.0
+    },
+    {
+      "class_id": 18,
+      "class": "Meem",
+      "correct": 11,
+      "total": 12,
+      "accuracy": 0.9166666666666666
+    },
+    {
+      "class_id": 19,
+      "class": "Nuun",
+      "correct": 10,
+      "total": 11,
+      "accuracy": 0.9090909090909091
+    },
+    {
+      "class_id": 20,
+      "class": "Nuungh",
+      "correct": 11,
+      "total": 12,
+      "accuracy": 0.9166666666666666
+    },
+    {
+      "class_id": 21,
+      "class": "Pay",
+      "correct": 12,
+      "total": 12,
+      "accuracy": 1.0
+    },
+    {
+      "class_id": 22,
+      "class": "Ray",
+      "correct": 11,
+      "total": 12,
+      "accuracy": 0.9166666666666666
+    },
+    {
+      "class_id": 23,
+      "class": "Say",
+      "correct": 12,
+      "total": 12,
+      "accuracy": 1.0
+    },
+    {
+      "class_id": 24,
+      "class": "Seen",
+      "correct": 10,
+      "total": 12,
+      "accuracy": 0.8333333333333334
+    },
+    {
+      "class_id": 25,
+      "class": "Sheen",
+      "correct": 8,
+      "total": 10,
+      "accuracy": 0.8
+    },
+    {
+      "class_id": 26,
+      "class": "Suad",
+      "correct": 11,
+      "total": 12,
+      "accuracy": 0.9166666666666666
+    },
+    {
+      "class_id": 27,
+      "class": "Taay",
+      "correct": 9,
+      "total": 10,
+      "accuracy": 0.9
+    },
+    {
+      "class_id": 28,
+      "class": "Tay",
+      "correct": 5,
+      "total": 6,
+      "accuracy": 0.8333333333333334
+    },
+    {
+      "class_id": 29,
+      "class": "Tuey",
+      "correct": 6,
+      "total": 11,
+      "accuracy": 0.5454545454545454
+    },
+    {
+      "class_id": 30,
+      "class": "Wao",
+      "correct": 10,
+      "total": 12,
+      "accuracy": 0.8333333333333334
+    },
+    {
+      "class_id": 31,
+      "class": "Zaal",
+      "correct": 12,
+      "total": 12,
+      "accuracy": 1.0
+    },
+    {
+      "class_id": 32,
+      "class": "Zaey",
+      "correct": 11,
+      "total": 12,
+      "accuracy": 0.9166666666666666
+    },
+    {
+      "class_id": 33,
+      "class": "Zay",
+      "correct": 10,
+      "total": 12,
+      "accuracy": 0.8333333333333334
+    },
+    {
+      "class_id": 34,
+      "class": "Zuad",
+      "correct": 10,
+      "total": 12,
+      "accuracy": 0.8333333333333334
+    },
+    {
+      "class_id": 35,
+      "class": "Zuey",
+      "correct": 10,
+      "total": 11,
+      "accuracy": 0.9090909090909091
+    }
+  ]
+}

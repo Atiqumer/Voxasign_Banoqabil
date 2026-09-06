@@ -1,0 +1,41 @@
+{
+    "original_features": 63,
+    "bone_features": 20,
+    "angle_features": 10,
+    "wrist_fingertip_features": 5,
+    "fingertip_pair_features": 10,
+    "palm_features": 7,
+    "total_features": 115,
+    "splits": {
+        "train": {
+            "original_shape": [
+                9244,
+                63
+            ],
+            "v2_shape": [
+                9244,
+                115
+            ]
+        },
+        "validation": {
+            "original_shape": [
+                277,
+                63
+            ],
+            "v2_shape": [
+                277,
+                115
+            ]
+        },
+        "test": {
+            "original_shape": [
+                416,
+                63
+            ],
+            "v2_shape": [
+                416,
+                115
+            ]
+        }
+    }
+}

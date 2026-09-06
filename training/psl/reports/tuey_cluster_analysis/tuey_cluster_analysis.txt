@@ -1,0 +1,32 @@
+VoxaSign PSL — Tuey Confusion Cluster Analysis
+======================================================================
+
+Target cluster:
+  Tuey
+  Bay
+  Daal
+  Tay
+  Chay
+  Say
+
+Best model: Random Forest
+CV accuracy: 95.98%
+Test accuracy: 82.81%
+
+Classification report:
+              precision    recall  f1-score   support
+
+        Tuey       0.50      0.45      0.48        11
+         Bay       1.00      1.00      1.00        12
+        Daal       0.50      0.55      0.52        11
+         Tay       1.00      1.00      1.00         6
+        Chay       1.00      1.00      1.00        12
+         Say       1.00      1.00      1.00        12
+
+    accuracy                           0.83        64
+   macro avg       0.83      0.83      0.83        64
+weighted avg       0.83      0.83      0.83        64
+
+Pairwise confusion:
+Tuey -> Daal: 6
+Daal -> Tuey: 5
