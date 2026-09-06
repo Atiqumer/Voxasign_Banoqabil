@@ -6,7 +6,7 @@ VoxaSign is a browser-based static sign recognizer with separate ASL and PSL mod
 
 ## Current release state
 
-- Branch: `fix-diagnostic-scaling`
+- Branch: `main`
 - Browser UI: ASL and PSL selector in `studio.html`
 - PSL V2 browser assets: `web_model/psl_v2/`
 - ASL browser assets: `web_model/model.json` and `web_model/weights.json`
@@ -55,3 +55,4 @@ Open `http://localhost:8000/studio.html`, hard-refresh after frontend changes, a
 - Keep source code, model assets required by the browser, scalers, class maps, and evaluated model outputs.
 - Do not commit generated checkpoints, report visualizations, or temporary audit CSVs; `.gitignore` covers them.
 - Keep `VOXASIGN_PROJECT_CONTEXT.md` as the detailed historical record. This file is the concise current-state handoff.
+- Netlify builds only the generated `deploy/` folder. It contains the browser runtime assets, not training data or checkpoints.

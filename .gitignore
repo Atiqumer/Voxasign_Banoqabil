@@ -14,3 +14,4 @@ venv/
 training/psl/checkpoints/
 training/psl/reports/**/visualizations/
 training/psl/reports/external_*_audit.csv
+deploy/
