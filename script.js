@@ -1,4 +1,5 @@
 import { HandLandmarker, FilesetResolver } from "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@latest";
+import { extractPslV2Features, scalePslV2Features } from "./psl_v2_features.js";
 
 // Canvas elements
 const video = document.getElementById("webcam");
@@ -8,7 +9,9 @@ const imageCanvas = document.getElementById("image_canvas");
 
 // State
 let handLandmarker;
-let model;
+const models = { asl: null, psl: null };
+let pslAssets = null;
+let signLanguage = "asl";
 let currentPrediction = "";
 let lastVideoTime = -1;
 let activeMode = null; // 'live' | 'upload'
@@ -33,11 +36,120 @@ window.clearCurrentPrediction = () => {
     if (window.updatePrediction) window.updatePrediction("", 0);
 };
 
-const labelMap = [
+const aslLabelMap = [
     "A","B","Blank","C","D","E","F","G","H","I",
     "J","K","L","M","N","O","P","Q","R","S",
     "T","U","V","W","X","Y","Z"
 ];
+
+const modelConfig = {
+    asl: {
+        modelPath: "./web_model/model.json",
+        weightsPath: "./web_model/weights.json",
+        inputSize: 63,
+        confidenceThreshold: 0.75,
+        hasBlankClass: true,
+    },
+    psl: {
+        modelPath: "./web_model/psl_v2/model.json",
+        weightsPath: "./web_model/psl_v2/weights.json",
+        scalerPath: "./web_model/psl_v2/scaler.json",
+        classMapPath: "./web_model/psl_v2/class_map.json",
+        inputSize: 115,
+        confidenceThreshold: 0.75,
+        hasBlankClass: false,
+    },
+};
+
+function base64ToArrayBuffer(base64) {
+    const binary = atob(base64);
+    const bytes = new Uint8Array(binary.length);
+    for (let index = 0; index < binary.length; index += 1) {
+        bytes[index] = binary.charCodeAt(index);
+    }
+    return bytes.buffer;
+}
+
+async function loadModelFromJsonWeights(config, expectedWeightBytes) {
+    const [modelResponse, weightsResponse] = await Promise.all([
+        fetch(config.modelPath, { cache: "no-store" }),
+        fetch(config.weightsPath, { cache: "no-store" }),
+    ]);
+    if (!modelResponse.ok || !weightsResponse.ok) {
+        throw new Error("Model assets are missing. Run the web-weight export command first.");
+    }
+
+    const [modelJSON, weightsJSON] = await Promise.all([
+        modelResponse.json(),
+        weightsResponse.json(),
+    ]);
+    const weightData = base64ToArrayBuffer(weightsJSON.data);
+    if (weightsJSON.encoding !== "base64" || weightData.byteLength !== expectedWeightBytes) {
+        throw new Error(
+            `Model weights are invalid: expected ${expectedWeightBytes} bytes, received ${weightData.byteLength}.`
+        );
+    }
+
+    return tf.loadLayersModel({
+        load: async () => ({
+            modelTopology: modelJSON.modelTopology,
+            format: modelJSON.format,
+            generatedBy: modelJSON.generatedBy,
+            convertedBy: modelJSON.convertedBy,
+            weightSpecs: modelJSON.weightsManifest[0].weights,
+            weightData,
+        }),
+    });
+}
+
+async function loadModel(language) {
+    if (models[language]) return models[language];
+
+    const config = modelConfig[language];
+    if (!config) throw new Error(`Unsupported sign language: ${language}`);
+
+    if (language === "psl") {
+        const [model, scalerResponse, classMapResponse] = await Promise.all([
+            loadModelFromJsonWeights(config, 298896),
+            fetch(config.scalerPath),
+            fetch(config.classMapPath),
+        ]);
+        if (!scalerResponse.ok || !classMapResponse.ok) {
+            throw new Error("PSL assets are missing. Export and convert the verified PSL V2 model first.");
+        }
+        pslAssets = {
+            scaler: await scalerResponse.json(),
+            classMap: await classMapResponse.json(),
+        };
+        if (pslAssets.scaler.feature_count !== 115) {
+            throw new Error("PSL scaler must contain the verified 115-feature contract.");
+        }
+        models.psl = model;
+    } else {
+        models.asl = await loadModelFromJsonWeights(config, 237164);
+    }
+    console.log(`✅ ${language.toUpperCase()} model loaded`);
+    return models[language];
+}
+
+async function setSignLanguage(language) {
+    if (!modelConfig[language] || language === signLanguage) return;
+
+    try {
+        if (window.updatePrediction) window.updatePrediction("", 0);
+        resetAutoDetection();
+        await loadModel(language);
+        signLanguage = language;
+        window.currentPrediction = "";
+        console.log(`Switched to ${language.toUpperCase()} inference.`);
+    } catch (error) {
+        console.error(`Could not switch to ${language.toUpperCase()}:`, error);
+        alert(error.message);
+        window.dispatchEvent(new CustomEvent("signLanguageRejected", { detail: signLanguage }));
+    }
+}
+
+window.addEventListener("signLanguageChange", (event) => setSignLanguage(event.detail));
 
 // ── INIT ──
 async function initialize() {
@@ -56,13 +168,17 @@ async function initialize() {
         });
         console.log("✅ MediaPipe HandLandmarker loaded");
         
-        console.log("Loading TensorFlow model from ./web_model/model.json...");
-        model = await tf.loadLayersModel('./web_model/model.json');
-        console.log("✅ TensorFlow model loaded");
+        console.log("Loading ASL TensorFlow.js model...");
+        await loadModel("asl");
         console.log("✅ AI Engine Ready - You can now use the app!");
     } catch (error) {
         console.error("❌ Initialization failed:", error);
-        alert("Failed to load AI models. Please check the console for details.\n\nMake sure you're running this from a web server (not file://)");
+        const reason = error instanceof Error ? error.message : String(error);
+        alert(
+            "Failed to load AI models.\n\n" +
+            `Reason: ${reason}\n\n` +
+            "Make sure the server was started from D:\\voxasign and that you opened http://localhost:8000/studio.html."
+        );
     }
 }
 
@@ -200,22 +316,37 @@ function processLandmarks(landmarks) {
 
 // ── INFERENCE ──
 async function runInference(landmarks) {
+    const model = models[signLanguage];
     if (!model) {
         console.error("Model not loaded yet");
         return;
     }
-    
-    const inputData = processLandmarks(landmarks);
-    const inputTensor = tf.tensor2d(inputData, [1, 63]);
+
+    const config = modelConfig[signLanguage];
+    let inputData;
+    let label;
+    if (signLanguage === "psl") {
+        inputData = scalePslV2Features(extractPslV2Features(landmarks), pslAssets.scaler);
+    } else {
+        inputData = processLandmarks(landmarks);
+    }
+
+    const inputTensor = tf.tensor2d(inputData, [1, config.inputSize]);
     const prediction = model.predict(inputTensor);
     const scores = await prediction.data();
     const maxIdx = scores.indexOf(Math.max(...scores));
     const confidence = scores[maxIdx];
-    const label = labelMap[maxIdx];
+    label = signLanguage === "psl" ? pslAssets.classMap[String(maxIdx)] : aslLabelMap[maxIdx];
 
     console.log(`Prediction: ${label} (${(confidence * 100).toFixed(1)}%)`);
 
-    if (confidence > 0.75 && label !== "Blank") {
+    // PSL has no Blank class. Its useful diagnostic output is the top class plus
+    // confidence, including uncertain results (notably the Tuey/Daal pair).
+    // ASL retains its existing confidence/Blank filter.
+    const shouldDisplay = signLanguage === "psl"
+        || (confidence > config.confidenceThreshold && (!config.hasBlankClass || label !== "Blank"));
+
+    if (shouldDisplay) {
         currentPrediction = label;
         window.currentPrediction = label;
         if (window.updatePrediction) window.updatePrediction(label, confidence);
@@ -317,8 +448,8 @@ async function predictWebcam() {
 // ── IMAGE UPLOAD INFERENCE ──
 document.getElementById("imageUpload").addEventListener("change", async (event) => {
     const file = event.target.files[0];
-    if (!file || !handLandmarker || !model) {
-        console.log("Upload skipped - not ready:", { file: !!file, handLandmarker: !!handLandmarker, model: !!model });
+    if (!file || !handLandmarker || !models[signLanguage]) {
+        console.log("Upload skipped - not ready:", { file: !!file, handLandmarker: !!handLandmarker, model: !!models[signLanguage] });
         return;
     }
 

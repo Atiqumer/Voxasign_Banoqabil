@@ -89,7 +89,11 @@ def normalize_landmarks(landmarks):
 # MEDIAPIPE
 # ============================================================
 
-def create_landmarker():
+def create_landmarker(
+    min_detection_confidence: float = MIN_DETECTION_CONFIDENCE,
+    min_presence_confidence: float = MIN_PRESENCE_CONFIDENCE,
+    min_tracking_confidence: float = MIN_TRACKING_CONFIDENCE,
+):
 
     BaseOptions = (
         mp.tasks.BaseOptions
@@ -118,13 +122,13 @@ def create_landmarker():
         ),
         num_hands=1,
         min_hand_detection_confidence=(
-            MIN_DETECTION_CONFIDENCE
+            min_detection_confidence
         ),
         min_hand_presence_confidence=(
-            MIN_PRESENCE_CONFIDENCE
+            min_presence_confidence
         ),
         min_tracking_confidence=(
-            MIN_TRACKING_CONFIDENCE
+            min_tracking_confidence
         ),
     )
 

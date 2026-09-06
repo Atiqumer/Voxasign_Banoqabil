@@ -519,6 +519,15 @@
 
     <main>
       <div style="display: flex; flex-direction: column; gap: 20px">
+        <div class="source-toggle" aria-label="Sign language selection">
+          <button class="toggle-btn active" id="aslLanguageBtn" type="button">
+            ASL · 26 letters
+          </button>
+          <button class="toggle-btn" id="pslLanguageBtn" type="button">
+            PSL · 36 signs
+          </button>
+        </div>
+
         <div class="source-toggle">
           <button class="toggle-btn" id="liveTile">
             <span>📷</span> Live Camera
@@ -589,7 +598,7 @@
               letter-spacing: 2px;
               text-transform: uppercase;
             "
-            >Inference</span
+            id="inferenceLanguage">ASL Inference</span
           >
           <div id="predBox">–</div>
           <div class="conf-track">
@@ -726,11 +735,35 @@
       const dropZone = document.getElementById("dropZone");
       const actionsBar = document.getElementById("uploadActionsBar");
       const cameraSwitchBar = document.getElementById("cameraSwitchBar");
+      const aslLanguageBtn = document.getElementById("aslLanguageBtn");
+      const pslLanguageBtn = document.getElementById("pslLanguageBtn");
+      const inferenceLanguage = document.getElementById("inferenceLanguage");
 
       let activeMode = null;
       let letterCount = 0,
         wordCount = 0;
       let wordBuffer = "";
+      let selectedLanguage = "asl";
+
+      function setSignLanguage(language) {
+        selectedLanguage = language;
+        aslLanguageBtn.classList.toggle("active", language === "asl");
+        pslLanguageBtn.classList.toggle("active", language === "psl");
+        inferenceLanguage.textContent = `${language.toUpperCase()} Inference`;
+        localStorage.setItem("signLanguage", language);
+        window.dispatchEvent(new CustomEvent("signLanguageChange", { detail: language }));
+      }
+
+      aslLanguageBtn.addEventListener("click", () => setSignLanguage("asl"));
+      pslLanguageBtn.addEventListener("click", () => setSignLanguage("psl"));
+      window.addEventListener("signLanguageRejected", (event) => {
+        if (event.detail !== selectedLanguage) {
+          setSignLanguage(event.detail);
+        }
+      });
+
+      const savedLanguage = localStorage.getItem("signLanguage");
+      if (savedLanguage === "psl") setSignLanguage("psl");
 
       // Auto-detection state
       let autoDetectionEnabled = false;
