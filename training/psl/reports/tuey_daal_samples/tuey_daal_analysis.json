@@ -2,7 +2,7 @@
     "version": "Tuey-Daal Analysis V1",
     "model": "D:\\voxasign\\training\\psl\\output\\psl_static_model_v2.keras",
     "test_samples": 416,
-    "overall_accuracy": 0.1971153846153846,
+    "overall_accuracy": 0.9423076923076923,
     "classes": {
         "Tuey": 29,
         "Daal": 7
@@ -12,28 +12,35 @@
         "Daal": 11
     },
     "recall": {
-        "Tuey": 0.5454545454545454,
-        "Daal": 0.18181818181818182
+        "Tuey": 0.2727272727272727,
+        "Daal": 0.8181818181818182
     },
     "confusion": {
-        "Tuey_to_Tuey": 6,
-        "Tuey_to_Daal": 1,
-        "Daal_to_Daal": 2,
+        "Tuey_to_Tuey": 3,
+        "Tuey_to_Daal": 8,
+        "Daal_to_Daal": 9,
         "Daal_to_Tuey": 2
     },
-    "error_count": 3,
+    "error_count": 10,
     "error_subject_counts": {
+        "258": 1,
+        "261": 1,
+        "269": 1,
+        "271": 1,
+        "272": 1,
+        "275": 1,
+        "286": 1,
         "289": 1,
         "294": 1,
         "334": 1
     },
-    "top_error_subject": "289",
+    "top_error_subject": "258",
     "top_error_subject_count": 1,
     "copied_images": {
-        "tuey_correct": 6,
-        "tuey_as_daal": 1,
-        "daal_correct": 2,
+        "tuey_correct": 3,
+        "tuey_as_daal": 8,
+        "daal_correct": 9,
         "daal_as_tuey": 2
     },
-    "interpretation": "Tuey/Daal confusion exists but is limited. Inspect the individual samples before changing the model."
+    "interpretation": "Tuey/Daal confusion is significant. The next step should be visual and subject-level inspection before V3 retraining."
 }

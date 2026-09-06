@@ -8,10 +8,10 @@
     },
     "metrics": {
         "v2": {
-            "accuracy": 0.6818181818181818,
-            "precision": 0.75,
-            "recall": 0.5454545454545454,
-            "f1": 0.631578947368421
+            "accuracy": 0.5454545454545454,
+            "precision": 0.6,
+            "recall": 0.2727272727272727,
+            "f1": 0.375
         },
         "v2_plus_geometry_1nn": {
             "accuracy": 0.6363636363636364,
@@ -19,11 +19,11 @@
             "recall": 0.5454545454545454,
             "f1": 0.6
         },
-        "f1_difference": -0.03157894736842104
+        "f1_difference": 0.22499999999999998
     },
     "confusion": {
         "v2": {
-            "tuey_to_daal": 1,
+            "tuey_to_daal": 8,
             "daal_to_tuey": 2
         },
         "geometry": {
@@ -32,10 +32,10 @@
         }
     },
     "error_categories": {
-        "both_correct": 5,
-        "v2_wrong_geometry_correct": 9,
-        "v2_correct_geometry_wrong": 3,
-        "both_wrong": 5
+        "both_correct": 10,
+        "v2_wrong_geometry_correct": 4,
+        "v2_correct_geometry_wrong": 2,
+        "both_wrong": 6
     },
     "visualization_counts": {
         "v2_correct_geometry_correct": 0,

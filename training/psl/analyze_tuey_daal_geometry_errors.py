@@ -53,6 +53,8 @@ from sklearn.preprocessing import StandardScaler
 
 import tensorflow as tf
 
+from v2_preprocessing import load_and_scale_v2_features
+
 
 warnings.filterwarnings("ignore")
 
@@ -64,6 +66,7 @@ warnings.filterwarnings("ignore")
 ROOT = Path(__file__).resolve().parent
 
 MODEL_PATH = ROOT / "output" / "psl_static_model_v2.keras"
+SCALER_PATH = ROOT / "output" / "psl_v2_scaler.npz"
 
 X_TRAIN_V2_PATH = (
     ROOT / "data" / "landmarks" / "v2" / "X_train_v2.npy"
@@ -1061,8 +1064,15 @@ def generate_v2_predictions(
         "GENERATING V2 PREDICTIONS"
     )
 
-    probabilities = model.predict(
+    X_test_scaled = load_and_scale_v2_features(
         X_test,
+        SCALER_PATH,
+    )
+
+    print("Applied saved training-only V2 scaler.")
+
+    probabilities = model.predict(
+        X_test_scaled,
         verbose=1,
     )
 
@@ -2115,6 +2125,7 @@ def main():
 
     required_files = [
         MODEL_PATH,
+        SCALER_PATH,
         X_TRAIN_V2_PATH,
         X_VAL_V2_PATH,
         X_TEST_V2_PATH,

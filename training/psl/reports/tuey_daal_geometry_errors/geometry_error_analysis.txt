@@ -3,10 +3,10 @@ VoxaSign PSL — Tuey vs Daal Geometry Error Analysis
 
 V2 metrics
 {
-    "accuracy": 0.6818181818181818,
-    "precision": 0.75,
-    "recall": 0.5454545454545454,
-    "f1": 0.631578947368421
+    "accuracy": 0.5454545454545454,
+    "precision": 0.6,
+    "recall": 0.2727272727272727,
+    "f1": 0.375
 }
 
 V2 + Geometry 1-NN metrics
@@ -18,13 +18,13 @@ V2 + Geometry 1-NN metrics
 }
 
 F1 difference
--3.16 percentage points
++22.50 percentage points
 
 
 Confusion
 {
     "v2": {
-        "tuey_to_daal": 1,
+        "tuey_to_daal": 8,
         "daal_to_tuey": 2
     },
     "geometry": {
@@ -35,10 +35,10 @@ Confusion
 
 Error categories
 {
-    "both_correct": 5,
-    "v2_wrong_geometry_correct": 9,
-    "v2_correct_geometry_wrong": 3,
-    "both_wrong": 5
+    "both_correct": 10,
+    "v2_wrong_geometry_correct": 4,
+    "v2_correct_geometry_wrong": 2,
+    "both_wrong": 6
 }
 
 Metadata alignment

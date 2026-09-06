@@ -3,23 +3,30 @@ VoxaSign PSL — Tuey vs Daal Test Sample Analysis
 
 Model: D:\voxasign\training\psl\output\psl_static_model_v2.keras
 Test samples: 416
-Overall accuracy: 19.71%
+Overall accuracy: 94.23%
 
 TUEY / DAAL RESULTS
 ----------------------------------------------------------------------
 Tuey total: 11
-Tuey correct: 6
-Tuey recall: 54.55%
+Tuey correct: 3
+Tuey recall: 27.27%
 
 Daal total: 11
-Daal correct: 2
-Daal recall: 18.18%
+Daal correct: 9
+Daal recall: 81.82%
 
-Tuey -> Daal: 1
+Tuey -> Daal: 8
 Daal -> Tuey: 2
 
 DIRECT ERROR SUBJECT COUNTS
 ----------------------------------------------------------------------
+258: 1
+261: 1
+269: 1
+271: 1
+272: 1
+275: 1
+286: 1
 289: 1
 294: 1
 334: 1
@@ -28,16 +35,16 @@ CLASSIFICATION REPORT
 ----------------------------------------------------------------------
               precision    recall  f1-score   support
 
-        Tuey       0.75      0.55      0.63        11
-        Daal       0.67      0.18      0.29        11
+        Tuey       0.60      0.27      0.38        11
+        Daal       0.53      0.82      0.64        11
 
-   micro avg       0.73      0.36      0.48        22
-   macro avg       0.71      0.36      0.46        22
-weighted avg       0.71      0.36      0.46        22
+    accuracy                           0.55        22
+   macro avg       0.56      0.55      0.51        22
+weighted avg       0.56      0.55      0.51        22
 
 
 INTERPRETATION
 ----------------------------------------------------------------------
-Tuey/Daal confusion exists but is limited. Inspect the individual samples before changing the model.
+Tuey/Daal confusion is significant. The next step should be visual and subject-level inspection before V3 retraining.
 
 Next step: visually inspect the copied Tuey/Daal samples and determine whether errors are related to image quality, hand pose, landmark representation, or subject variation.

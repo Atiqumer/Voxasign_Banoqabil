@@ -8,6 +8,8 @@ import tensorflow as tf
 
 from sklearn.metrics import confusion_matrix, classification_report
 
+from v2_preprocessing import load_and_scale_v2_features
+
 
 # ============================================================================
 # CONFIGURATION
@@ -16,6 +18,7 @@ from sklearn.metrics import confusion_matrix, classification_report
 BASE_DIR = Path(__file__).resolve().parent
 
 MODEL_PATH = BASE_DIR / "output" / "psl_static_model_v2.keras"
+SCALER_PATH = BASE_DIR / "output" / "psl_v2_scaler.npz"
 
 X_TEST_PATH = BASE_DIR / "data" / "landmarks" / "v2" / "X_test_v2.npy"
 Y_TEST_PATH = BASE_DIR / "data" / "landmarks" / "y_test.npy"
@@ -307,6 +310,7 @@ def main():
     print_header("CHECKING REQUIRED FILES")
 
     check_file(MODEL_PATH, "V2 model")
+    check_file(SCALER_PATH, "V2 scaler")
     check_file(X_TEST_PATH, "X_test_v2")
     check_file(Y_TEST_PATH, "y_test")
     check_file(METADATA_PATH, "metadata")
@@ -420,8 +424,15 @@ def main():
 
     print_header("GENERATING TEST PREDICTIONS")
 
-    probabilities = model.predict(
+    X_test_scaled = load_and_scale_v2_features(
         X_test,
+        SCALER_PATH,
+    )
+
+    print("Applied saved training-only V2 scaler.")
+
+    probabilities = model.predict(
+        X_test_scaled,
         verbose=1
     )
 
