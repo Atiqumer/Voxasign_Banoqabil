@@ -3,195 +3,37 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Voxasign — The Professional ASL AI Studio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <meta name="description" content="VoxaSign helps you recognize static ASL and PSL hand signs directly in your browser." />
+    <title>VoxaSign — Sign recognition, made simple</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
     <style>
-      :root {
-        --bg-dark: #020617;
-        --card-glass: rgba(15, 23, 42, 0.8);
-        --electric-blue: #38bdf8;
-        --blue-glow: rgba(56, 189, 248, 0.2);
-        --text-bright: #f1f5f9;
-        --text-muted: #94a3b8;
-        --border-glass: rgba(255, 255, 255, 0.1);
-      }
-
-      * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-      body {
-        font-family: "Nunito", sans-serif;
-        background: var(--bg-dark);
-        color: var(--text-bright);
-        background-image: radial-gradient(at 0% 0%, hsla(217, 100%, 12%, 1) 0, transparent 50%),
-                          radial-gradient(at 100% 100%, hsla(200, 100%, 10%, 1) 0, transparent 50%);
-        min-height: 100vh;
-        line-height: 1.6;
-        overflow-x: hidden;
-      }
-
-      /* Navbar */
-      nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 15px 5%;
-        backdrop-filter: blur(12px);
-        background: var(--card-glass);
-        border-bottom: 1px solid var(--border-glass);
-        position: sticky; top: 0; z-index: 1000;
-      }
-
-      .logo-box { display: flex; align-items: center; gap: 12px; }
-      .logo-icon {
-        width: 40px; height: 40px;
-        background: var(--blue-glow);
-        border: 1.5px solid var(--electric-blue);
-        border-radius: 10px;
-        display: flex; align-items: center; justify-content: center;
-        color: var(--electric-blue);
-      }
-      .logo-name { font-family: "Lora", serif; font-size: 1.3rem; font-weight: 600; }
-      .logo-name span { color: var(--electric-blue); }
-
-      /* Hero Section with Video */
-      .hero {
-        position: relative;
-        padding: 100px 5%;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .video-container {
-        width: 100%;
-        max-width: 1000px;
-        margin-top: 40px;
-        border-radius: 24px;
-        overflow: hidden;
-        border: 1px solid var(--border-glass);
-        box-shadow: 0 0 50px rgba(56, 189, 248, 0.1);
-        background: #000;
-      }
-
-      video { width: 100%; display: block; }
-
-      .hero h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.1; margin-bottom: 20px; max-width: 800px; }
-      .hero h1 span { color: var(--electric-blue); }
-      .hero p { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 30px; max-width: 650px; }
-
-      .btn-main {
-        background: var(--electric-blue);
-        color: var(--bg-dark);
-        padding: 16px 32px;
-        border-radius: 12px;
-        font-weight: 800;
-        text-decoration: none;
-        transition: 0.3s;
-        display: inline-block;
-      }
-      .btn-main:hover { transform: translateY(-3px); box-shadow: 0 10px 30px var(--blue-glow); }
-
-      /* Compact Alphabet Grid */
-      .section { padding: 80px 5%; max-width: 1200px; margin: 0 auto; }
-      .section-header { text-align: center; margin-bottom: 40px; }
-      .section-header h2 { font-size: 2.2rem; font-family: "Lora"; margin-bottom: 10px; }
-
-      .alpha-grid {
-        display: grid;
-        grid-template-columns: repeat(7, 1fr); /* 7 per row on desktop */
-        gap: 15px;
-        margin-bottom: 50px;
-      }
-
-      .alpha-card {
-        background: var(--card-glass);
-        border: 1px solid var(--border-glass);
-        padding: 15px 10px;
-        border-radius: 15px;
-        text-align: center;
-        transition: 0.2s;
-      }
-      .alpha-card:hover { border-color: var(--electric-blue); background: rgba(56, 189, 248, 0.05); transform: scale(1.05); }
-      .alpha-card img { width: 45px; height: 45px; margin-bottom: 8px; filter: brightness(1.2); }
-      .alpha-card span { display: block; font-weight: 800; color: var(--electric-blue); font-size: 0.9rem; }
-
-      /* Challenge Banner */
-      .game-box {
-        background: linear-gradient(135deg, rgba(56, 189, 248, 0.1) 0%, transparent 100%);
-        border: 1px solid var(--electric-blue);
-        padding: 60px 40px;
-        border-radius: 30px;
-        text-align: center;
-      }
-
-      footer { text-align: center; padding: 50px; color: var(--text-muted); font-size: 0.8rem; }
-
-      /* Tablet/Mobile Adjustments */
-      @media (max-width: 1024px) { .alpha-grid { grid-template-columns: repeat(5, 1fr); } }
-      @media (max-width: 768px) { 
-        .hero h1 { font-size: 2.5rem; } 
-        .alpha-grid { grid-template-columns: repeat(4, 1fr); }
-      }
-      @media (max-width: 480px) { .alpha-grid { grid-template-columns: repeat(3, 1fr); } }
+      :root { --ink:#132238; --muted:#617085; --paper:#f7fafc; --surface:#fff; --line:#dce5ed; --blue:#087ea4; --teal:#0a9b87; --navy:#0d2138; --shadow:0 18px 50px rgba(20,48,75,.10); }
+      * { box-sizing:border-box; } html { scroll-behavior:smooth; } body { margin:0; color:var(--ink); background:var(--paper); font-family:"DM Sans",sans-serif; line-height:1.55; } a { color:inherit; }
+      .wrap { width:min(1120px,calc(100% - 40px)); margin:auto; } nav { display:flex; justify-content:space-between; align-items:center; padding:22px 0; }
+      .brand { display:flex; align-items:center; gap:10px; text-decoration:none; font-weight:700; font-size:1.25rem; letter-spacing:-.03em; } .brand-mark { display:grid; place-items:center; height:38px; width:38px; border-radius:12px; color:white; background:var(--navy); } .brand span { color:var(--blue); } .nav-link { color:var(--muted); text-decoration:none; font-weight:600; }
+      .hero { display:grid; grid-template-columns:1.1fr .9fr; align-items:center; gap:60px; padding:64px 0 86px; } .eyebrow { display:inline-flex; gap:8px; align-items:center; color:var(--blue); font-size:.82rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; } .eyebrow::before { content:""; height:9px; width:9px; border-radius:50%; background:var(--teal); }
+      h1,h2,h3 { line-height:1.12; letter-spacing:-.045em; } h1 { font-family:"Playfair Display",serif; font-size:clamp(2.8rem,6vw,4.8rem); margin:16px 0 22px; } h1 em { color:var(--blue); font-style:normal; } .hero p { max-width:590px; color:var(--muted); font-size:1.12rem; margin:0 0 28px; }
+      .actions { display:flex; gap:14px; flex-wrap:wrap; } .button { display:inline-flex; align-items:center; justify-content:center; gap:9px; border-radius:10px; padding:14px 20px; font-weight:700; text-decoration:none; } .button-primary { color:white; background:var(--blue); box-shadow:0 10px 22px rgba(8,126,164,.22); } .button-secondary { border:1px solid var(--line); background:white; }
+      .hero-visual { position:relative; min-height:370px; border-radius:28px; overflow:hidden; background:var(--navy); box-shadow:var(--shadow); } .hero-visual video { width:100%; height:100%; min-height:370px; object-fit:cover; opacity:.82; } .visual-caption { position:absolute; bottom:18px; left:18px; right:18px; padding:16px; color:white; background:rgba(10,26,43,.78); backdrop-filter:blur(8px); border-radius:14px; } .visual-caption strong { display:block; } .visual-caption span { font-size:.9rem; color:#c5d7e6; }
+      section { padding:80px 0; } .section-heading { max-width:650px; margin-bottom:32px; } h2 { font-family:"Playfair Display",serif; font-size:clamp(2rem,4vw,3rem); margin:0 0 12px; } .section-heading p { color:var(--muted); margin:0; } .steps { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; } .step { padding:28px; background:var(--surface); border:1px solid var(--line); border-radius:18px; } .step-number { display:grid; place-items:center; width:34px; height:34px; margin-bottom:28px; border-radius:50%; color:var(--blue); background:#e7f5f8; font-weight:700; } h3 { font-size:1.18rem; margin:0 0 8px; } .step p { color:var(--muted); margin:0; }
+      .language-section { background:#eaf4f5; } .languages { display:grid; grid-template-columns:repeat(2,1fr); gap:18px; } .language { padding:28px; background:white; border-radius:18px; border:1px solid #d5e5e7; } .language-tag { color:var(--teal); font-weight:700; font-size:.8rem; letter-spacing:.08em; text-transform:uppercase; } .language p { color:var(--muted); margin:8px 0 0; } .notice { margin-top:28px; padding:16px 18px; border-left:4px solid var(--teal); background:#f5fffc; color:#375565; border-radius:0 10px 10px 0; font-size:.94rem; }
+      .closing { text-align:center; padding:86px 20px; background:var(--navy); color:white; } .closing h2 { max-width:620px; margin:0 auto 18px; } .closing p { max-width:520px; margin:0 auto 26px; color:#c5d7e6; } footer { padding:26px 0; color:var(--muted); font-size:.9rem; text-align:center; }
+      @media (max-width:760px) { .hero { grid-template-columns:1fr; gap:34px; padding:35px 0 65px; } .hero-visual,.hero-visual video { min-height:280px; } .steps,.languages { grid-template-columns:1fr; } section { padding:58px 0; } .nav-link { display:none; } }
     </style>
   </head>
   <body>
-    <nav>
-      <div class="logo-box">
-        <div class="logo-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0"/><path d="M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0"/><path d="M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg>
-        </div>
-        <div class="logo-name">Voxa<span>sign</span></div>
-      </div>
-      <a href="studio.html" class="btn-main" style="padding: 10px 20px; font-size: 0.85rem;">Launch Studio</a>
-    </nav>
-
-    <header class="hero">
-      <h1>The Future of <span>Inclusive</span> Communication</h1>
-      <p>Bridge the gap between sign language and speech with our real-time Edge AI interpreter.</p>
-      <a href="#challenge" class="btn-main">Join the Challenge</a>
-
-      <div class="video-container">
-        <video autoplay muted loop playsinline disablePictureInPicture controlsList="nodownload">
-          <source src="demo.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      </div>
-    </header>
-
-    <section class="section">
-      <div class="section-header">
-        <h2>Alphabet Mastery</h2>
-        <p>Master the signs below to achieve 100% accuracy in the studio.</p>
-      </div>
-
-      <div class="alpha-grid" id="alphaGrid">
-        </div>
-
-      <div class="game-box" id="challenge">
-        <h2 style="font-family: Lora; margin-bottom: 20px;">Sign & Win Challenge 🏆</h2>
-        <p style="margin-bottom: 25px;">Achieve <b>95% accuracy</b> on any word in the studio, share your results on LinkedIn, and tag us to join the global leaderboard!</p>
-        <a href="studio.html" class="btn-main">Start Your Challenge</a>
-      </div>
-    </section>
-
-    <footer>
-      Voxasign — Empowering Silence through Artificial Intelligence.
-    </footer>
-
-    <script>
-      const alphaGrid = document.getElementById('alphaGrid');
-      const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
-
-      alphabet.forEach(letter => {
-        const card = document.createElement('div');
-        card.className = 'alpha-card';
-        card.innerHTML = `
-          <img src="signs/${letter.toLowerCase()}.png" alt="Sign ${letter}" onerror="this.src='https://img.icons8.com/ios/50/38bdf8/sign-language-${letter.toLowerCase()}.png'">
-          <span>${letter}</span>
-        `;
-        alphaGrid.appendChild(card);
-      });
-    </script>
+    <div class="wrap">
+      <nav aria-label="Main navigation"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0"/><path d="M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0"/><path d="M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg></span>Voxa<span>Sign</span></a><a class="nav-link" href="#how-it-works">How it works</a></nav>
+      <header class="hero">
+        <div><div class="eyebrow">Browser-based sign recognition</div><h1>Understand a sign in <em>three simple steps.</em></h1><p>Choose ASL or PSL, use your camera or upload a photo, and VoxaSign shows its recognition result on your device.</p><div class="actions"><a class="button button-primary" href="studio.html">Start recognizing signs <span aria-hidden="true">→</span></a><a class="button button-secondary" href="#how-it-works">See how it works</a></div></div>
+        <div class="hero-visual"><video autoplay muted loop playsinline aria-label="VoxaSign demonstration video"><source src="demo.mp4" type="video/mp4" /></video><div class="visual-caption"><strong>Designed for a clear first try</strong><span>No account or download required.</span></div></div>
+      </header>
+    </div>
+    <section id="how-it-works"><div class="wrap"><div class="section-heading"><h2>How to use VoxaSign</h2><p>Start here if you are new. The studio will guide you through the same order.</p></div><div class="steps"><article class="step"><div class="step-number">1</div><h3>Choose a language</h3><p>Select American Sign Language (ASL) or Pakistan Sign Language (PSL) before starting recognition.</p></article><article class="step"><div class="step-number">2</div><h3>Choose your input</h3><p>Use a live camera for real-time recognition, or upload a clear photo of one hand sign.</p></article><article class="step"><div class="step-number">3</div><h3>Read or build words</h3><p>Review the result and add recognized signs to the word area when you want to create text.</p></article></div></div></section>
+    <section class="language-section"><div class="wrap"><div class="section-heading"><h2>Pick the right mode</h2><p>Each mode uses its own trained model. Choose the language that matches the sign you are showing.</p></div><div class="languages"><article class="language"><div class="language-tag">ASL mode</div><h3>American Sign Language</h3><p>Recognizes static alphabet signs. Results below the confidence threshold are hidden to avoid unreliable letters.</p></article><article class="language"><div class="language-tag">PSL mode</div><h3>Pakistan Sign Language</h3><p>Recognizes 36 static PSL signs. Keep your hand clearly visible and use a well-lit image for the best result.</p></article></div><p class="notice"><strong>Good to know:</strong> VoxaSign currently recognizes static hand signs. Motion-based signs are not yet supported.</p></div></section>
+    <section class="closing"><h2>Ready to recognize your first sign?</h2><p>Open the studio, follow the three steps at the top, and allow camera permission when using Live Camera.</p><a class="button button-primary" href="studio.html">Open VoxaSign Studio <span aria-hidden="true">→</span></a></section>
+    <footer class="wrap">VoxaSign · Static ASL and PSL sign recognition</footer>
   </body>
 </html>

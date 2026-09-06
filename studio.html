@@ -439,6 +439,29 @@
         display: none;
       }
 
+      .back-link {
+        color: var(--text-muted);
+        text-decoration: none;
+        font-size: 0.85rem;
+        font-weight: 700;
+      }
+
+      .studio-guide {
+        border-left: 4px solid var(--electric-blue);
+        padding: 16px 18px;
+      }
+
+      .studio-guide h1 {
+        font-family: "Lora", serif;
+        font-size: 1.6rem;
+        margin-bottom: 6px;
+      }
+
+      .studio-guide p { color: var(--text-muted); font-size: 0.92rem; }
+      .guide-steps { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+      .guide-step { border: 1px solid var(--border-glass); border-radius: 999px; padding: 6px 10px; color: var(--text-muted); font-size: 0.78rem; }
+      .guide-step b { color: var(--electric-blue); margin-right: 4px; }
+
       footer {
         text-align: center;
         padding: 20px;
@@ -512,18 +535,24 @@
         </div>
         <div class="logo-name">Voxa<span>sign</span></div>
       </div>
-      <button class="btn-ref" onclick="window.open('img.png', '_blank')">
-        📖 Alphabet Reference
-      </button>
+      <div style="display:flex; gap:14px; align-items:center">
+        <a class="back-link" href="index.html">← How it works</a>
+        <button class="btn-ref" onclick="window.open('img.png', '_blank')">Alphabet reference</button>
+      </div>
     </header>
 
     <main>
       <div style="display: flex; flex-direction: column; gap: 20px">
+        <section class="glass-panel studio-guide" aria-labelledby="studioTitle">
+          <h1 id="studioTitle">Recognize a sign</h1>
+          <p>Follow these steps in order. For the best result, show one hand clearly against a simple background.</p>
+          <div class="guide-steps"><span class="guide-step"><b>1</b>Choose language</span><span class="guide-step"><b>2</b>Choose camera or photo</span><span class="guide-step"><b>3</b>Read result</span></div>
+        </section>
         <div class="source-toggle" aria-label="Sign language selection">
-          <button class="toggle-btn active" id="aslLanguageBtn" type="button">
+          <button class="toggle-btn active" id="aslLanguageBtn" type="button" aria-label="Choose American Sign Language">
             ASL · 26 letters
           </button>
-          <button class="toggle-btn" id="pslLanguageBtn" type="button">
+          <button class="toggle-btn" id="pslLanguageBtn" type="button" aria-label="Choose Pakistan Sign Language">
             PSL · 36 signs
           </button>
         </div>
@@ -542,7 +571,8 @@
 
           <div id="placeholder">
             <span style="font-size: 50px; margin-bottom: 10px">👋</span>
-            <p style="color: var(--text-muted)">Select a source to start</p>
+            <strong style="margin-bottom: 6px">Choose an input to begin</strong>
+            <p style="color: var(--text-muted)">Use Live Camera, or upload one clear photo of a hand sign.</p>
           </div>
 
           <div id="liveView">
@@ -598,14 +628,14 @@
               letter-spacing: 2px;
               text-transform: uppercase;
             "
-            id="inferenceLanguage">ASL Inference</span
+            id="inferenceLanguage">ASL recognition</span
           >
           <div id="predBox">–</div>
           <div class="conf-track">
             <div class="conf-fill" id="confFill"></div>
           </div>
           <div id="confText" style="font-size: 12px; color: var(--text-muted)">
-            Awaiting hand...
+            Choose a language and input
           </div>
         </div>
 
@@ -622,7 +652,7 @@
 
           <!-- Mode Status -->
           <div class="mode-status" id="modeStatus">
-            Click ADD TO WORD to add letter
+            Add the displayed result to build text
           </div>
 
           <!-- Progress Bar (Auto Mode Only) -->
@@ -749,7 +779,7 @@
         selectedLanguage = language;
         aslLanguageBtn.classList.toggle("active", language === "asl");
         pslLanguageBtn.classList.toggle("active", language === "psl");
-        inferenceLanguage.textContent = `${language.toUpperCase()} Inference`;
+        inferenceLanguage.textContent = `${language.toUpperCase()} recognition`;
         localStorage.setItem("signLanguage", language);
         window.dispatchEvent(new CustomEvent("signLanguageChange", { detail: language }));
       }
@@ -837,7 +867,7 @@
         manualModeBtn.classList.add("active");
         autoModeBtn.classList.remove("active");
         modeStatus.classList.remove("auto-active");
-        modeStatus.textContent = "Click ADD TO WORD to add letter";
+        modeStatus.textContent = "Add the displayed result to build text";
         submitBtn.style.display = "block";
         window.updateProgressBar(0);
         
